@@ -1,0 +1,100 @@
+/* src/app/components/Banner.module.scss */
+.banner {
+    background: #ddd5d5;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  color: #332f2f;
+  font-family: 'Playfair Display', serif;
+
+
+    @media (min-width: 768px) {
+      text-align: left;
+      padding: 4rem 6rem;
+    }
+  }
+  
+  .shipping {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  .text {
+    max-width: 500px;
+  
+    @media (min-width: 768px) {
+      margin-right: 2rem;
+    }
+  }
+  
+  .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aa8c64;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  
+    @media (min-width: 768px) {
+      font-size: 2.8rem;
+    }
+  
+    @media (min-width: 1024px) {
+      font-size: 3rem;
+    }
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #555;
+  
+    @media (min-width: 768px) {
+      font-size: 1.15rem;
+    }
+  }
+  
+  .button {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #aa8c64;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  
+    &:hover {
+      background-color: #8a704f;
+    }
+  }
+  
+  .image {
+    margin-top: 2rem;
+  
+    @media (min-width: 768px) {
+      margin-top: 0;
+    }
+  
+    img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  

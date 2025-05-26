@@ -1,0 +1,60 @@
+/* src/app/components/Button.module.scss */
+.button {
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+   
+    &:hover {
+      opacity: 0.9;
+    }  &.sm {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+      }
+    
+      &.md {
+        font-size: 1rem;
+        padding: 0.7rem 1.4rem;
+      }
+    
+      &.lg {
+        font-size: 1.2rem;
+        padding: 1rem 3rem;
+      }
+    }
+
+  
+  /* Variants */
+  .primary {
+   
+    color: #fff; background-color:#8c7b75;// #aa8c64;
+ 
+    border: none;
+  
+  &:hover {
+    background-color:#8c7b75;//#8a704f;
+  }
+}
+  .secondary {
+    color: #fff; background-color:#c5bdbd;
+ 
+    border: none;
+  
+  &:hover {
+    background-color: #ddd5d5;
+    color:#332f2f ;
+  }
+  }
+  
+  .outline {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+  }
+  
+  

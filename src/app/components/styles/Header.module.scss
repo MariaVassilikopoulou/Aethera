@@ -1,0 +1,17 @@
+/* Header.module.scss */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Playfair Display', serif;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .icons span {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+  }
+  
