@@ -2,8 +2,11 @@
 
 import Button from './Button';
 import styles from './styles/Newsletter.module.scss'
-
+import { useRouter } from 'next/navigation';
 export default function Newsletter() {
+  const router = useRouter();
+
+
   return (
     <section className={styles.newsletter}>
       <div className={styles.content}>
@@ -13,7 +16,8 @@ export default function Newsletter() {
           <input type="email" placeholder="Enter your email" required />
          
         </form> */}
-         <Button size='lg' variant ='secondary'>Sign Up ➜ </Button> 
+         <Button size='lg' variant ='secondary'  onClick={() => router.push('/')} >Sign Up ➜ </Button> 
+        
       </div>
     </section>
   );

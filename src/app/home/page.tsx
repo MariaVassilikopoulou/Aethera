@@ -1,6 +1,6 @@
 // src/app/home/page.tsx
 import Banner from '../components/Banner';
-import Header from '../components/Header';
+
 import Newsletter from '../components/Newsletter';
 import ProductCard from '../components/ProductCard';
 import styles from './home.module.scss';
@@ -9,11 +9,11 @@ import styles from './home.module.scss';
 export default function HomePage() {
   return (
     <main className={styles.home}>
-    <Header/>
+  
      <Banner 
       title="Orchidée Blanche"
       subtitle="A fragrance that carries you away."
-      shippingNote="Free Shipping Worldwide"/>
+      shippingNote="Meet first the new summer fragrance!"/>
    
       <section className={styles.intro}>
         <p>Find your signature fragrance with Aethera – where elegance meets the finest ingredients.</p>
@@ -21,7 +21,7 @@ export default function HomePage() {
 
       <section className={styles.products}>
       <div className={styles.grid}>
-      {[...Array(12)].map((_, i) => (
+      {[...Array(8)].map((_, i) => (
       <ProductCard key={i}
                    title='Perfume1'
                    price={79.99}

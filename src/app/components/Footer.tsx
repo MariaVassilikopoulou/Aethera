@@ -11,7 +11,7 @@ const Footer = () => {
       </div>*/}
       
       <div className={styles.container}>
-        <div className={styles.logo}>Aethera</div>
+       {/*<div className={styles.logo}>Aethera</div> */}
         <nav className={styles.nav}>
             <div>
         <p>Contact</p>

@@ -5,13 +5,49 @@
     padding: 1rem 2rem;
     border-bottom: 1px solid #ddd;
     font-family: 'Playfair Display', serif;
+    align-items: center;
+ 
+ 
+  
   }
+
+  .searchWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+   
+
+    .searchInput {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s ease;
+     width: 30rem;
+     &:hover {
+      border-color: #8c7b75;
+    }
+    
+  }
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #8c7b75;
+  }
+}
   .logo {
     font-weight: bold;
     font-size: 1.5rem;
   }
-  .icons span {
+  .icons  {
     margin-left: 1rem;
     font-size: 1.2rem;
-  }
-  
+    display: flex;
+    gap: 1rem; 
+    
+}
