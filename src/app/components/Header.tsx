@@ -4,6 +4,7 @@ import styles from '@/app/components/styles/Header.module.scss';
 import { Search, User, ShoppingCart } from 'lucide-react';
 import {useState} from 'react';
 import { useRouter ,usePathname,} from 'next/navigation';
+import AuthButton from './AuthButton';
 
 
 
@@ -43,6 +44,9 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.logo}>Aethera</div>
       
+   
+
+
       {!hideIcons && ( <form onSubmit={handleSearchSubmit} className={styles.searchWrapper}>
         {showSearch && (
           <input
@@ -63,6 +67,7 @@ export default function Header() {
       <ShoppingCart className={styles.icon} onClick={handleCartClick} 
      
       size={24} />
+      <AuthButton /> 
       </div>)}
     </header>
   );

@@ -1,15 +1,16 @@
 // src/app/home/page.tsx
-import Banner from '../components/Banner';
+import Banner from '../../components/Banner';
 
-import Newsletter from '../components/Newsletter';
-import ProductCard from '../components/ProductCard';
+
+import Newsletter from '../../components/Newsletter';
+import ProductCard from '../../components/ProductCard';
 import styles from './home.module.scss';
 
 
 export default function HomePage() {
   return (
     <main className={styles.home}>
-  
+     
      <Banner 
       title="Orchidée Blanche"
       subtitle="A fragrance that carries you away."
@@ -30,7 +31,7 @@ export default function HomePage() {
         </section>
   
      <Newsletter/>
-
+   
 
 
     
