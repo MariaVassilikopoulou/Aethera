@@ -4,7 +4,7 @@ import styles from '@/app/components/styles/Header.module.scss';
 import { Search, User, ShoppingCart } from 'lucide-react';
 import {useState} from 'react';
 import { useRouter ,usePathname,} from 'next/navigation';
-import AuthButton from './AuthButton';
+
 
 
 
@@ -28,7 +28,7 @@ export default function Header() {
       router.push(`/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
-
+ 
   const handleUserClick = () => {
     
       router.push('/profile');
@@ -42,8 +42,8 @@ export default function Header() {
   const hideIcons = pathname === '/login' || pathname === '/';
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>Aethera</div>
-      
+      <div className={styles.logo}   onClick={() => router.push('/')}>Aethera</div>
+    
    
 
 
@@ -67,7 +67,7 @@ export default function Header() {
       <ShoppingCart className={styles.icon} onClick={handleCartClick} 
      
       size={24} />
-      <AuthButton /> 
+       
       </div>)}
     </header>
   );
