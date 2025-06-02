@@ -34,7 +34,7 @@ export default function ProfilePage() {
     </main>
   );
 }
-*/
+
 
 // src/app/profile/page.tsx
 "use client";
@@ -66,7 +66,26 @@ export default function ProfilePage() {
       <p><strong>Email:</strong> {account?.username}</p>
 
       {/* Optional: Display custom attributes from B2C, if configured 
-      <p><strong>Custom Role:</strong> {account?.idTokenClaims?.extension_userRole}</p>*/}
-    </main>
-  );
+      <p><strong>Custom Role:</strong> {account?.idTokenClaims?.extension_userRole}</p>*/
+    /* </main>*/
+
+// example: src/app/profile/page.tsx
+"use client"
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export default function ProfilePage() {
+  const { isAuthenticated, account } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push("/"); // redirect if not logged in
+    }
+  }, [isAuthenticated]);
+
+  if (!isAuthenticated) return null;
+
+  return <h1>Hello, {account?.name}</h1>;
 }

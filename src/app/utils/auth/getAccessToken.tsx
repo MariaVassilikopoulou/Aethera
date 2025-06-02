@@ -1,4 +1,4 @@
-// lib/auth/getAccessToken.ts
+// /auth/getAccessToken.ts
 
 import { loginRequest } from "@/authConfig";
 import { IPublicClientApplication, AccountInfo} from "@azure/msal-browser";

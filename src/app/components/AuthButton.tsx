@@ -5,6 +5,7 @@ import { loginRequest } from "@/authConfig";
 import { getAccessToken } from "../../app/utils/auth/getAccessToken";
 import { useState ,useEffect} from "react";
 import { useRouter } from 'next/navigation';
+import Button from "./Button";
 
 export default function AuthButton() {
   const router = useRouter();
@@ -17,7 +18,7 @@ export default function AuthButton() {
   useEffect(() => {
     if (isAuthenticated) {
       // Redirect to /home on successful login
-      router.push("/home");
+      router.push("/");
     }
   }, [isAuthenticated, router]);
 
@@ -42,16 +43,16 @@ export default function AuthButton() {
 
 
   if (!isAuthenticated) {
-    return <button onClick={handleLogin}>Login</button>;
+    return  <Button onClick={handleLogin}>Login</Button>
   }
   return (
     <div>
       {isAuthenticated ? (
         <>
           <p>✅ Welcome, {account?.name || account?.username}</p>
-          <button onClick={handleLogout}>Logout</button>
+          <Button onClick={handleLogout}>Logout</Button>
           <br />
-          <button onClick={handleGetToken}>Get Access Token</button>
+          <Button onClick={handleGetToken}>Get Access Token</Button>
           {token && (
             <div>
               <p className="mt-2 break-all">Token: {token}</p>
@@ -59,7 +60,7 @@ export default function AuthButton() {
           )}
         </>
       ) : (
-        <button onClick={handleLogin}>Login</button>
+        <Button onClick={handleLogin}>Login</Button>
       )}
     </div>
   );

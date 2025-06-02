@@ -1,37 +1,49 @@
 // src/app/home/page.tsx
 "use client"; // Important: this must be at the top if using hooks
 
-import { useMsal, useAccount, useIsAuthenticated } from "@azure/msal-react";
-import { loginRequest } from "@/authConfig";
+
 import Banner from '../../components/Banner';
 import Newsletter from '../../components/Newsletter';
 import ProductCard from '../../components/ProductCard';
 import styles from './home.module.scss';
 
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
+import { useAuth } from "@/hooks/useAuth";
 export default function HomePage() {
-  const isAuthenticated = useIsAuthenticated();
-  const { instance, accounts } = useMsal();
-  const account = useAccount(accounts[0] || {});
 
-  const handleLogin = () => {
-    instance.loginPopup(loginRequest).catch((e) => {
-      console.error("❌ Login error:", e);
-    });
-  };
+  const { isAuthenticated, account } = useAuth();
+ 
+  
 
-  // Not authenticated? Show login button only
+ 
+ /* // Not authenticated? Show login button only
   if (!isAuthenticated) {
     return (
       <main className={styles.home}>
         <button onClick={handleLogin}>Login</button>
       </main>
     );
-  }
+  }*/
 
-  // Authenticated? Show content
-  return (
-    <main className={styles.home}>
-      <p>✅ Welcome, {account?.name || account?.username}</p>
+    return (
+      <main className={styles.home}>
+        <Header/>
+        {/* ✅ Show this only if logged in */}
+        {isAuthenticated && (
+          <p>Welcome, {account?.name || account?.username}</p>
+        )} 
+         
+  
+        {/* 🟡 Optional login button for guests 
+        {!isAuthenticated && (
+          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+            <p>👋 Welcome, guest!</p>
+            <Button onClick={handleLogin} variant="primary" size="sm">
+              Login for more features
+            </Button>
+          </div>
+        )}*/}
 
       <Banner
         title="Orchidée Blanche"
@@ -59,6 +71,7 @@ export default function HomePage() {
       </section>
 
       <Newsletter />
+      <Footer/>
     </main>
   );
 }
