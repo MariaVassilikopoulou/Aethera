@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "../../hooks/useAuth";
 
-
+import { useCartStore } from '@/stores/cartStore';
 export default function Header() {
 
   const [showSearch, setShowSearch] = useState(false);
@@ -31,7 +31,9 @@ export default function Header() {
     setShowMenu(false);
   };
 
-
+  const cart = useCartStore(state => state.cart);
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
   useEffect(() => {
     const closeMenu = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
@@ -117,11 +119,14 @@ export default function Header() {
             </div>
           )}
         </div>
-     
-      <ShoppingCart className={styles.icon} onClick={handleCartClick} 
+        <div style={{ position: "relative" }} onClick={handleCartClick}>
+      <ShoppingCart className={styles.icon} 
      
       size={24} />
-       
+       {totalQuantity > 0 && (
+    <span className={styles.badge}>{totalQuantity}</span>
+  )}
+</div>
       </div>
     </header>
   );

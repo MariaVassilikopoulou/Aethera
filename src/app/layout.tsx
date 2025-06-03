@@ -1,6 +1,6 @@
-import '@/app/globalstyles/global.scss';
 
-import "@/app/globalstyles/global.scss";
+
+import "@/globalstyles/global.scss";
 
 export const metadata = {
   title: 'Aethera Webshop',

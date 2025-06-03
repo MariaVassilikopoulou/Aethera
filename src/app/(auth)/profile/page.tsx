@@ -83,7 +83,7 @@ export default function ProfilePage() {
     if (!isAuthenticated) {
       router.push("/"); // redirect if not logged in
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, router]);
 
   if (!isAuthenticated) return null;
 

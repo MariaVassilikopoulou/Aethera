@@ -7,7 +7,7 @@ type ButtonProps = {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
- 
+
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({ size = 'md', variant = 'primary', children,   ...rest }: ButtonProps) {

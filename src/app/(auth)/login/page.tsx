@@ -1,5 +1,5 @@
 
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../../components/LoginForm';
 import styles from '../components/styles/LoginForm.module.scss';
 
 export default function LoginPage() {

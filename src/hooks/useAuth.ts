@@ -2,7 +2,7 @@
 
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
-import { getAccessToken } from "@/app/utils/auth/getAccessToken";
+import { getAccessToken } from "@/utils/auth/getAccessToken";
 import { useState,useEffect } from "react";
 
 export function useAuth() {

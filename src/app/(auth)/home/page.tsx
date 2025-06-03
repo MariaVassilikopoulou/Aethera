@@ -1,5 +1,5 @@
 // src/app/home/page.tsx
-"use client"; // Important: this must be at the top if using hooks
+"use client"; 
 
 
 import Banner from '../../components/Banner';
@@ -62,7 +62,7 @@ export default function HomePage() {
           {[...Array(8)].map((_, i) => (
             <ProductCard
               key={i}
-              title="Perfume1"
+              name="Perfume1"
               price={79.99}
               imageUrl="/images/Right-Container.png"
             />

@@ -2,15 +2,15 @@
 
 import React from 'react';
 
-interface ProductPageProps {
-  params: { id: string };
-}
 
-export default function ProductPage({ params }: ProductPageProps) {
+                             
+export default async function ProductPage({ params }:{ params: Promise<{ id: string }> }) {
+  const {id}  = await params;
   return (
+    
     <div>
       <h1>Product Detail</h1>
-      <p>Product ID: {params.id}</p>
+      <p>Product ID: {id}</p>
     </div>
   );
 }

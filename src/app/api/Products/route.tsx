@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAzureToken } from "../../utils/auth/verifyAzureToken";
+import { verifyAzureToken } from "../../../utils/auth/verifyAzureToken";
 
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
 
     // ✅ Validate the token
     const user = await verifyAzureToken(token);
-
+    console.log(user);
     // You could restrict to certain users, groups, etc. using `user` info
 
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;

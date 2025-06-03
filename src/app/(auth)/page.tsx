@@ -49,9 +49,9 @@ import styles from './home/home.module.scss';
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
-import { fetchProducts ,  Product} from '../services/productService';
+import { fetchProducts ,  Product} from '../../services/productService';
 import { useEffect, useState } from 'react';
-import AuthButton from '../components/AuthButton';
+
 
 
 
@@ -124,7 +124,8 @@ export default function HomePage() {
           { /*[...Array(8)].map((_, i) */} {products.map((product)  => (
             <ProductCard
               key={product.id}
-              title={product.name}
+              id={product.id} 
+              name={product.name}
               price={product.price}
               imageUrl="/images/Right-Container.png"
             />
@@ -132,7 +133,6 @@ export default function HomePage() {
         </div>
       </section>
 
-   <AuthButton/>
       <Footer/>
     </main>
   );

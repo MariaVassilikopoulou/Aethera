@@ -2,7 +2,7 @@
 "use client"
 import { useMsal, useAccount, useIsAuthenticated } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
-import { getAccessToken } from "../../app/utils/auth/getAccessToken";
+import { getAccessToken } from "../../utils/auth/getAccessToken";
 import { useState ,useEffect} from "react";
 import { useRouter } from 'next/navigation';
 import Button from "./Button";
