@@ -8,6 +8,7 @@ export async function GET(req: NextRequest) {
   try {
     const authorizationHeader = req.headers.get("Authorization");
     console.log("Authorization header:", authorizationHeader);
+    console.log("All headers:", Object.fromEntries(req.headers.entries()));
     if (!authorizationHeader || !authorizationHeader.startsWith("Bearer ")) {
       return NextResponse.json({ message: "Access token missing or invalid" }, { status: 401 });
     }
@@ -51,7 +52,7 @@ export async function GET(req: NextRequest) {
       products,
     });
   } catch (error) {
-    console.error("❌ Error fetching products:", error);
+    console.error("Error fetching products:", error);
     return NextResponse.json({ message: "Internal server error" }, { status: 500 });
   }
 }

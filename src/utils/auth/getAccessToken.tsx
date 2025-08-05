@@ -15,7 +15,7 @@ export async function getAccessToken(
     });
     return response.accessToken;
   } catch (error) {
-    console.error("❌ Failed to acquire token silently:", error);
+    console.error(" Failed to acquire token silently:", error);
     return null;
   }
 }

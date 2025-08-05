@@ -24,7 +24,7 @@ export default function AuthButton() {
 
   const handleLogin = () => {
     instance.loginPopup(loginRequest).catch((e) => {
-      console.error("❌ Login error:", e);
+      console.error(" Login error:", e);
     });
   };
 
@@ -38,7 +38,7 @@ export default function AuthButton() {
 
     const token = await getAccessToken(instance, accounts[0]);
     setToken(token);
-    console.log("🔐 Access token:", token);
+    console.log(" Access token:", token);
   };
 
 
@@ -49,7 +49,7 @@ export default function AuthButton() {
     <div>
       {isAuthenticated ? (
         <>
-          <p>✅ Welcome, {account?.name || account?.username}</p>
+          <p>Welcome, {account?.name || account?.username}</p>
           <Button onClick={handleLogout}>Logout</Button>
           <br />
           <Button onClick={handleGetToken}>Get Access Token</Button>

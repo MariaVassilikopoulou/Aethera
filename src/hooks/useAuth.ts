@@ -23,7 +23,7 @@ export function useAuth() {
 
     fetchToken();
   }, [isAuthenticated, account, instance]);
-  console.log("🔐 Access token:", token);
+ // console.log("🔐 Access token:", token);
 
 
   const login = () =>

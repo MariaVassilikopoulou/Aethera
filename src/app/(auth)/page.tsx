@@ -23,10 +23,6 @@ export default function RegisterPage() {
   const handleGoOn = () => {
     router.push("/home")
   };
-
-  
-  
-
   return (
    
     <div className={styles.authWrapper}>
@@ -65,12 +61,13 @@ export default function HomePage() {
   useEffect(() => {
     const getProducts = async () => {
       if (!token) return;
+      console.log(" Token before fetch:", token);
 
       try {
         const data = await fetchProducts(token);
         setProducts(data);
       } catch (error) {
-        console.error("❌ Could not load products:", error);
+        console.error(" Could not load products:", error);
       }
     };
 
@@ -91,16 +88,16 @@ export default function HomePage() {
     return (
       <main className={styles.home}>
         <Header/>
-        {/* ✅ Show this only if logged in */}
+        {/* Show this only if logged in */}
         {isAuthenticated && (
           <p>Welcome, {account?.name || account?.username}</p>
         )} 
          
   
-        {/* 🟡 Optional login button for guests 
+        {/*  Optional login button for guests 
         {!isAuthenticated && (
           <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-            <p>👋 Welcome, guest!</p>
+            <p> Welcome, guest!</p>
             <Button onClick={handleLogin} variant="primary" size="sm">
               Login for more features
             </Button>
@@ -127,7 +124,7 @@ export default function HomePage() {
               id={product.id} 
               name={product.name}
               price={product.price}
-              imageUrl="/images/Right-Container.png"
+              imageUrl={product.imageUrl}
             />
           ))}
         </div>

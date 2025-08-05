@@ -19,7 +19,8 @@ export const msalConfig = {
       "profile", 
       "email", 
       "offline_access", 
-      "api://297ac375-6408-43f6-bac5-e72e2c44b313/Aethera_access_api"
+      "297ac375-6408-43f6-bac5-e72e2c44b313/Aethera_access_api"
+      
     ]
   };
   export const instance = new PublicClientApplication(msalConfig);

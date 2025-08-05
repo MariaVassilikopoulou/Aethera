@@ -29,16 +29,16 @@ export default function HomePage() {
     return (
       <main className={styles.home}>
         <Header/>
-        {/* ✅ Show this only if logged in */}
+        {/* Show this only if logged in */}
         {isAuthenticated && (
           <p>Welcome, {account?.name || account?.username}</p>
         )} 
          
   
-        {/* 🟡 Optional login button for guests 
+        {/* Optional login button for guests 
         {!isAuthenticated && (
           <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-            <p>👋 Welcome, guest!</p>
+            <p>Welcome, guest!</p>
             <Button onClick={handleLogin} variant="primary" size="sm">
               Login for more features
             </Button>
@@ -61,6 +61,7 @@ export default function HomePage() {
         <div className={styles.grid}>
           {[...Array(8)].map((_, i) => (
             <ProductCard
+              id= ""
               key={i}
               name="Perfume1"
               price={79.99}

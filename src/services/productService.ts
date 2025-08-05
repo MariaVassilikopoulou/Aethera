@@ -23,13 +23,15 @@ export async function fetchProducts(token: string): Promise<Product[]> {
         
         console.log("fetch token:", token);
       if (!response.ok) {
-        throw new Error(`❌ Failed to fetch: ${response.status}`);
+        throw new Error(` Failed to fetch: ${response.status}`);
       }
   
       const result = await response.json();
       return result.products; 
     } catch (error) {
-      console.error("❌ Error fetching products:", error);
+      console.error(" Error fetching products:", error);
+      console.log("Calling /api/Products with token:", token);
+
       throw error;
     }
   }

@@ -61,7 +61,7 @@ export default function ProfilePage() {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1>👤 User Profile</h1>
+      <h1>User Profile</h1>
       <p><strong>Name:</strong> {account?.name}</p>
       <p><strong>Email:</strong> {account?.username}</p>
 

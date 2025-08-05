@@ -2,6 +2,8 @@
 
 import { useCartStore } from '@/stores/cartStore';
 import Button from '../components/Button';
+import Image from 'next/image';
+import styles from '../components/styles/ProductCard.module.scss';
 
 export default function CartPage() {
   const cart = useCartStore(state => state.cart);
@@ -19,10 +21,12 @@ export default function CartPage() {
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {cart.map((item) => (
             <li key={item.id} style={{ marginBottom: '1.5rem' }}>
+                <Image src={item.imageUrl} alt={item.name} width={300} height={200} className={styles.image}/>
               <div><strong>{item.name}</strong></div>
               <div>Quantity: {item.quantity}</div>
               <div>Price: €{item.price.toFixed(2)}</div>
               <div>Subtotal: €{(item.price * item.quantity).toFixed(2)}</div>
+
               <div style={{ marginTop: '0.5rem' }}>
                 <Button
                   size="sm"
