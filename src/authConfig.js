@@ -1,5 +1,8 @@
 // authConfig.js
 import { PublicClientApplication } from "@azure/msal-browser";
+
+const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+
 export const msalConfig = {
     auth: {
       clientId: "e83f31c8-cc33-49ab-b023-6091f20f85ed",

@@ -54,10 +54,14 @@ import { useEffect, useState } from 'react';
 
 export default function HomePage() {
 
-  const { isAuthenticated, account , token } = useAuth();
+ 
   const [products, setProducts] = useState<Product[]>([]);
-
-
+  const [isClient, setIsClient] = useState(false);
+  const { isAuthenticated, account , token } = useAuth();
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+ 
   useEffect(() => {
     const getProducts = async () => {
       if (!token) return;
@@ -71,8 +75,12 @@ export default function HomePage() {
       }
     };
 
-    getProducts();
-  }, [token]);
+    if (isClient) {
+      getProducts();
+    }
+  }, [token, isClient]);
+
+  if (!isClient) return null;
 
 
  
