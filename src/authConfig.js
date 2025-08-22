@@ -6,7 +6,7 @@ const isLocalhost = typeof window !== 'undefined' && window.location.hostname ==
 export const msalConfig = {
   auth: {
     clientId: "e83f31c8-cc33-49ab-b023-6091f20f85ed", // frontend app id
-    authority:   "https://aetheraparfum.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/userflownew/v2.0",
+    authority:   "https://aetheraparfum.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/userflownew",
     //"https://aetheraparfum.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/userflownew/",
                  // user flow
     redirectUri: isLocalhost
