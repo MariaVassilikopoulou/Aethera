@@ -107,11 +107,11 @@ export default function Header() {
               ) : (
                 <>
                   <button onClick={() => {
-  login().then(() => {
+  login();//.then(() => {
     setShowMenu(false);
-    router.push("/"); // Redirect to homepage
-  });
-}}>Login</button>
+    //router.push("/"); // Redirect to homepage
+  }
+}>Login</button>
                   <button onClick={() => setShowMenu(false)}>Continue as Guest</button>
                   <button onClick={handleLogout}>Logout</button>
                 </>
