@@ -32,7 +32,7 @@ export function decodeJwt(token: string) {
   
   //https://login.microsoftonline.com/${azureAD_TENANT_ID}/discovery/v2.0/keys
 // Microsoft's public keys
-const jwksUri = `https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/discovery/v2.0/keys`;
+const jwksUri =  `https://aetheraparfum.ciamlogin.com/aetheraparfum.onmicrosoft.com/discovery/v2.0/keys`; //`https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/discovery/v2.0/keys`;
 const JWKS = createRemoteJWKSet(new URL(jwksUri));
 interface AzureTokenPayload {
     aud: string;
@@ -50,8 +50,11 @@ interface AzureTokenPayload {
 export async function verifyAzureToken(token: string): Promise<AzureTokenPayload> {
     try {
         const { payload } = await jwtVerify<AzureTokenPayload>(token, JWKS, {
-          issuer: "https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/v2.0",
-          audience: "297ac375-6408-43f6-bac5-e72e2c44b313",
+          issuer: "https://aetheraparfum.ciamlogin.com/aetheraparfum.onmicrosoft.com/v2.0",// "https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/v2.0",
+          audience: [
+           "297ac375-6408-43f6-bac5-e72e2c44b313", // Backend clientId
+        "api://297ac375-6408-43f6-bac5-e72e2c44b313"
+          ]
         });
         return payload;
   
