@@ -51,6 +51,7 @@ export function useAuth() {
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
 import { useState, useEffect } from "react";
+import { AuthenticationResult, AuthError } from "@azure/msal-browser";
 
 export function useAuth() {
   const { instance, accounts } = useMsal();
@@ -109,15 +110,24 @@ export function useAuth() {
       }
 
       // Use popup login with user flow
-      const response = await instance.loginPopup(loginRequest);
+      const response: AuthenticationResult = await instance.loginPopup(loginRequest);
       console.log("Login successful:", response);
-    } catch (err) {
-      console.error("Login failed:", err);
+    } catch (error) {
+      console.error("Login failed:", error);
       
-      // Enhanced error logging
-      if (err.errorCode === 'endpoints_resolution_error') {
-        console.error("Check your authority URL configuration in authConfig.ts");
-        console.error("Current authority:", loginRequest.authority);
+      // Enhanced error logging with proper type checking
+      if (error instanceof AuthError) {
+        console.error("Auth Error Code:", error.errorCode);
+        console.error("Auth Error Message:", error.errorMessage);
+        
+        if (error.errorCode === 'endpoints_resolution_error') {
+          console.error("Check your authority URL configuration in authConfig.ts");
+          console.error("Current base authority from msalConfig");
+        }
+      } else if (error instanceof Error) {
+        console.error("Generic Error:", error.message);
+      } else {
+        console.error("Unknown error:", error);
       }
     }
   };
@@ -125,8 +135,13 @@ export function useAuth() {
   const logout = async () => {
     try {
       await instance.logoutPopup();
-    } catch (err) {
-      console.error("Logout failed:", err);
+    } catch (error) {
+      console.error("Logout failed:", error);
+      
+      if (error instanceof AuthError) {
+        console.error("Logout Error Code:", error.errorCode);
+        console.error("Logout Error Message:", error.errorMessage);
+      }
     }
   };
 

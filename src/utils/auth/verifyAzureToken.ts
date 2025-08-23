@@ -103,7 +103,7 @@ export function decodeJwt(token: string) {
 }
 
 // Microsoft's public keys for CIAM - using the tenant subdomain (more reliable for CIAM)
-const jwksUri = `https://aetheraparfum.ciamlogin.com/aetheraparfum.onmicrosoft.com/discovery/v2.0/keys`;
+const jwksUri =  `https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/discovery/v2.0/keys`;
 const JWKS = createRemoteJWKSet(new URL(jwksUri));
 
 interface AzureTokenPayload {
@@ -122,7 +122,7 @@ interface AzureTokenPayload {
 export async function verifyAzureToken(token: string): Promise<AzureTokenPayload> {
     try {
         const { payload } = await jwtVerify<AzureTokenPayload>(token, JWKS, {
-          issuer: "https://aetheraparfum.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/userflownew/v2.0", // User flow specific issuer
+          issuer: "https://fdc03cff-281e-4d9e-abf7-f454c53775e4.ciamlogin.com/fdc03cff-281e-4d9e-abf7-f454c53775e4/v2.0", // User flow specific issuer
           audience: [
             "297ac375-6408-43f6-bac5-e72e2c44b313", // Backend clientId
             "api://297ac375-6408-43f6-bac5-e72e2c44b313"
