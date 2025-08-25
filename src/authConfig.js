@@ -63,7 +63,7 @@ export const msalConfig = {
     authority: "https://aetheraparfum.ciamlogin.com/aetheraparfum.onmicrosoft.com",
     redirectUri: isLocalhost
       ? "http://localhost:3000"
-      : "https://aethera-eight.vercel.app",
+      : "https://aethera-eight.vercel.app/api/auth/callback",
     knownAuthorities: ["aetheraparfum.ciamlogin.com"],
   },
   cache: {
