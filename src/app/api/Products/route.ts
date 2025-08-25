@@ -29,6 +29,7 @@ export async function GET(req: NextRequest) {
     const query = searchParams.get("search") || "";
 
     const backendUrl = `${baseUrl}/api/Products?search=${encodeURIComponent(query)}`;
+    //const backendUrl = `${baseUrl}api/Products?search=${encodeURIComponent(query)}`;
 
     const response = await fetch(backendUrl, {
       headers: {
@@ -42,7 +43,9 @@ export async function GET(req: NextRequest) {
     }
 
     if (!response.ok) {
-      throw new Error("Failed to fetch products: " + response.statusText);
+      const text = await response.text();
+      console.error("Backend error:", response.status, text);
+      throw new Error(`Failed to fetch products: ${response.status} ${text}`);
     }
 
     const products = await response.json();
