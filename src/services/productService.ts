@@ -12,12 +12,13 @@ export interface Product {
 }
 
 export async function fetchProducts(token: string): Promise<Product[]> {
-    try {
+  try {
+    const backendUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/Products`;
     
-        const response = await fetch("/api/Products", {
+    const response = await fetch(backendUrl, {
           headers: {
             Authorization: `Bearer ${token}`,
-            
+            "Content-Type": "application/json",
           },
         });
         
@@ -27,7 +28,7 @@ export async function fetchProducts(token: string): Promise<Product[]> {
       }
   
       const result = await response.json();
-      return result.products; 
+      return result; 
     } catch (error) {
       console.error(" Error fetching products:", error);
       console.log("Calling /api/Products with token:", token);

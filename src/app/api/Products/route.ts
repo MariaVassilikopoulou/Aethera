@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const query = searchParams.get("search") || "";
 
-    const backendUrl = `${baseUrl}/api/Products?search=${encodeURIComponent(query)}`;
+    const backendUrl = `${baseUrl}api/Products?search=${encodeURIComponent(query)}`;
     //const backendUrl = `${baseUrl}api/Products?search=${encodeURIComponent(query)}`;
 
     const response = await fetch(backendUrl, {
