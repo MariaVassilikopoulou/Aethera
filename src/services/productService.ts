@@ -10,6 +10,7 @@ export interface Product {
 export async function fetchProducts(token: string): Promise<Product[]> {
   try {
     const backendUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/Products`;
+    console.log("Fetching from backend URL:", backendUrl);
 
     const response = await fetch(backendUrl, {
       headers: {
