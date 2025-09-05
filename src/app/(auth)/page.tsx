@@ -96,10 +96,13 @@ export default function HomePage() {
     return (
       <main className={styles.home}>
         <Header/>
+       
         {/* Show this only if logged in */}
-        {isAuthenticated && (
-          <p>Welcome, {account?.name || account?.username}</p>
-        )} 
+        {isAuthenticated && ( 
+          <div className={styles.welcomeBanner}>
+          <p >Welcome, {account?.name || account?.username}</p>
+          </div>
+        )}  
          
   
         {/*  Optional login button for guests 

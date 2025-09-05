@@ -30,8 +30,10 @@ export default function HomePage() {
       <main className={styles.home}>
         <Header/>
         {/* Show this only if logged in */}
-        {isAuthenticated && (
-          <p>Welcome, {account?.name || account?.username}</p>
+        {isAuthenticated && ( 
+          <div className={styles.welcomeBanner}>
+          <p >Welcome, {account?.name || account?.username}</p>
+          </div>
         )} 
          
   
@@ -51,13 +53,13 @@ export default function HomePage() {
         shippingNote="Meet first the new summer fragrance!"
       />
 
-      <section className={styles.intro}>
+      <section className={`${styles.intro} ${styles.container}`}>
         <p>
           Find your signature fragrance with Aethera – where elegance meets the finest ingredients.
         </p>
       </section>
 
-      <section className={styles.products}>
+      <section className={`${styles.products} ${styles.container}`}>
         <div className={styles.grid}>
           {[...Array(8)].map((_, i) => (
             <ProductCard
@@ -71,7 +73,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Newsletter />
+      <div className={styles.container}>
+     <Newsletter />
+     </div>
       <Footer/>
     </main>
   );

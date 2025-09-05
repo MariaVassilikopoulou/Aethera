@@ -6,8 +6,10 @@
     border-bottom: 1px solid #ddd;
     font-family: 'Playfair Display', serif;
     align-items: center;
- 
- 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #f2eaea;
   
   }
 
@@ -42,7 +44,7 @@
 }
   .logo {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .icons  {
     margin-left: 1rem;

@@ -4,7 +4,8 @@ import Image from 'next/image';
 import styles from './styles/ProductCard.module.scss';
 import Button from './Button';
 import { useCartStore } from '@/stores/cartStore';
-
+import toast from "react-hot-toast";
+import { useRouter } from 'next/navigation';
 
 interface ProductCardProps {
   id:string;
@@ -16,6 +17,10 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ id, name, price, imageUrl, description, category}: ProductCardProps) {
+  const router = useRouter();
+  
+const goToProduct = () => router.push(`/products/${id}`);
+
   const addToCart = useCartStore(state => state.addToCart);
   const handleAddToCart = () => {
     addToCart({
@@ -26,10 +31,12 @@ export default function ProductCard({ id, name, price, imageUrl, description, ca
       description,
       category
     });
+    toast.success(`${name} added to cart!`);
   };
   return (
     <div className={styles.card}>
-         <div className={styles.imageContainer}>
+         <div className={styles.imageContainer}
+         onClick={goToProduct}>
         <Image src={imageUrl} alt={name} width={300} height={200} className={styles.image}
         sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" />
         </div>

@@ -1,0 +1,199 @@
+.cartPage {
+    padding: 2rem;
+    //font-family: 'Playfair Display', serif;
+  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  .cartContainer {
+    max-width: 600px; // or 800px, adjust as needed
+    margin: 0 auto; // center horizontally
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+  }
+
+
+  .emptyCart {
+    text-align: center;
+    margin-top: 3rem;
+  
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #666;
+    }
+  }
+  .cartList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .cartItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;  
+    padding: 1rem;
+    border-radius: 4px ;
+    background:transparent;
+   // box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    //transition: background-color 0.3s ease, border 0.3s ease;
+    border-top: 1px solid #b4aaaa;    // top border
+    border-bottom: 1px solid #b4aaaa; // bottom border
+    border-left: none;                 // no left border
+    border-right: none;   
+    width: 100%;
+ /*   &:hover {
+      background-color: #f2eaea;
+      border: 0.5px solid #b4aaaa;
+    }*/
+  
+    .image {
+
+        flex-shrink: 0;       // prevent image from shrinking
+        width: 120px;         // adjust size to your liking
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    
+        h3 {
+          font-size: 1.3rem;
+          margin: 0;
+          font-weight: 700;
+        }
+    }
+        .price, .subtotal {
+          //font-size: 1rem;
+          color: #666;
+        margin: 0.5rem 0;
+        font-weight:400;
+        }
+    
+  .quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+  
+    .quantityBtn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+  
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+  
+      &:hover {
+        background-color: #e2e2e2;
+      }
+  
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  .quantity {
+    min-width: 24px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .trashButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d9534f;
+    transition: color 0.2s ease;
+  
+    &:hover {
+      color: #c9302c;
+    }
+  }
+  
+  .total {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: right;
+  }
+}
+
+.cartSummary {
+    align-self: flex-end; // pushes it to the right edge
+    margin-top: 0.5rem;     // adds some spacing from cart items
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: right;    // aligns text and buttons to the right
+  
+  
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .backToShop {
+    margin-bottom: 1rem;
+    text-align:end; // aligns button to the left above cart
+  }
+  @media (max-width: 768px) {
+    .cartContainer{
+        flex-direction: column; // stack on mobile
+        align-items: center;
+      }
+    
+    .cartItem {
+      flex-direction: column;
+      align-items: center;
+  
+      .info {
+        align-items: center;
+        text-align: center;
+      }
+  
+      .quantityControls {
+        justify-content: center;
+      }
+  
+      .cartSummary {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+  
