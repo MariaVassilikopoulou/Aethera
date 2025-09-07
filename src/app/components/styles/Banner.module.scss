@@ -1,6 +1,6 @@
 .banner {
   background: #ddd5d5;
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
   color: #332f2f;
   font-family: 'Segoe UI', sans-serif;
 
@@ -48,7 +48,7 @@
 
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;      // bigger for banner impact
+  font-size: 2rem;      // bigger for banner impact
   font-weight: 700;
   margin: 0.5rem 0;
   line-height: 1.2;
@@ -95,31 +95,28 @@
 }
 
 .image {
+  width: 100%;
+  aspect-ratio: 4 / 2; // Adjust ratio for banner
+  position: relative;   // Required for Next.js Image with fill
   margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-
   @media (min-width: 768px) {
+    width: 45%;           // smaller than 50% to reduce dominance
+    max-width: 500px;     // limit the image width
+    aspect-ratio: auto;   // let it scale naturally
     margin-top: 0;
   }
 
   img {
-    width: 100%;
-    height: auto;
+    border-radius: 39px;
     object-fit: cover;
-    border-radius: 32px;
-    transition: transform 0.3s ease;
-    max-width: 90%; 
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease;
+  }
 
-    @media (min-width: 1024px) {
-      max-width: 700px;
-    }
-    @media (min-width: 1440px) {
-      max-width: 900px;
-    }
+
 
     &:hover {
       transform: scale(1.03);
     }
   }
-}

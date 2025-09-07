@@ -1,86 +1,128 @@
 .productPage {
-    max-width: 1200px; // allow more space for bigger images
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: 'Playfair Display', serif;
-    color: #333;
-  
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
     }
-  
-    .content {
-      display: flex;
-      gap: 3rem;
-      align-items: flex-start;
-  
-      @media (max-width: 1024px) {
-        gap: 2rem;
-      }
-  
-      @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
+  }
+
+  .content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+
+    @media (max-width: 1024px) {
+      gap: 2rem;
     }
-  
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
     .imageContainer {
       flex: 1;
       display: flex;
       justify-content: center;
-    
-      .img {   // use the class you added
-        width: 100%; // take all available width
-        max-width: 350px; // limit for very large screens
+      
+      // Mobile-specific container adjustments
+      @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 1rem; // add some padding on mobile
+      }
+
+      .img {
         height: auto;
-        border-radius: 12px;
-        object-fit: contain; // better for product images
+        border-radius: 32px;
+        object-fit: contain; // keep aspect ratio
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         transition: transform 0.3s ease;
-    
+
         &:hover {
           transform: scale(1.03);
         }
+
+        // Desktop and tablet sizes
+        @media (min-width: 769px) {
+          width: 100%;
+          max-width: 400px;
+        }
+
+        // Mobile - make image much larger and more prominent
+        @media (max-width: 768px) {
+          width: 100% !important; // force full width
+          max-width: 100% !important; // remove max-width restriction
+          min-width: 280px; // ensure minimum size
+          border-radius: 32px;
+        }
       }
     }
-  
+    
+
     .details {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-  
+
       p {
         font-size: 1.1rem;
         line-height: 1.6;
         color: #555;
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
       }
-  
+
       .price {
         font-size: 1.6rem;
         font-weight: 700;
         color: #111;
+
+        @media (max-width: 768px) {
+          font-size: 1.4rem;
+        }
       }
-  
+
       .addToCartBtn {
         margin-top: 1rem;
-  
+        display: flex;
+        justify-content: flex-start;
+
         @media (max-width: 768px) {
           width: 100%;
-          text-align: center;
+          justify-content: center;
+
+          button {
+            width: 90%; // almost full width on mobile
+          }
         }
       }
     }
-  
-    .backButton {
-      margin-bottom: 2rem;
-      text-align:end;
-      
+  }
+
+  .backButton {
+    margin-top: 2rem;
+    text-align: end;
+
+    @media (max-width: 768px) {
+      text-align: center;
+
+      button {
+        width: 50%; // bigger and centered on mobile
       }
     }
-  
-  
+  }
+}

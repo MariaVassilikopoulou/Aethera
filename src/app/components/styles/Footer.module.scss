@@ -1,95 +1,111 @@
 .footer {
-    background-color:#f2eaea;
-    color: #0f0f0f;
-    text-align: center;
-    padding-top: 2rem;
-    position: relative;
-   font-size: 1.2rem;
-   font-weight: 500;
-   /* .wave {
-        position: absolute;
-        top: -8rem;
-        left: 0;
+  background-color:#f2eaea;
+  color: #0f0f0f;
+  text-align: center;
+  padding-top: 2rem;
+  position: relative;
+ font-size: 1.2rem;
+ font-weight: 500;
+ /* .wave {
+      position: absolute;
+      top: -8rem;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+  
+      svg {
+        display: block;
         width: 100%;
         height: auto;
-        z-index: 1;
-    
-        svg {
-          display: block;
-          width: 100%;
-          height: auto;
-        }
       }
-  */
+    }
+*/
 
-  @media (min-width: 768px) {
-    padding: 2rem 3rem;
+@media (min-width: 768px) {
+  padding: 3rem 4rem; // Increased padding for more breathing room
+}
+
+.extradiv{margin-top: 2rem;
+margin-bottom: 2rem;}
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items:normal;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 3px solid #bdaaaa;
   }
 
-  .extradiv{margin-top: 3rem;}
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items:normal;
-      gap: 2.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 3px solid #bdaaaa;
-    }
-  
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-  p{ font-weight:600;
-    font-family: 'Segoe UI', sans-serif;}
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+p{ font-weight:600;
+  font-family: 'Playfair Display', serif;}
 
 
-    .nav {
-      
-      display: flex;
-      justify-content:center;
+  .nav {
+    display: flex;
+    flex-direction: column; // Stack vertically on mobile
+    align-items: center;
+    gap: 0.75rem; // Small gap on mobile
+    margin-bottom: 1rem;
+    
+    @media (min-width: 768px) {
+      flex-direction: row; // Back to horizontal on desktop
+      justify-content: space-around; // Original desktop layout
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.5rem; // Back to original desktop gap
       margin-bottom: 1rem;
-      @media (min-width: 768px) {
-        justify-content: space-around; // spread out on larger screens
-      }
-      a, span {
-        color: #332f2f;
-        text-decoration: none;
-        font-size: 1.125rem;
-        transition: color 0.3s ease;
+    }
 
-        &:hover {
-          color: #aa8c64;
-        }
+    a, span {
+      color: #332f2f;
+      text-decoration: none;
+      font-size: 1.125rem;
+      transition: color 0.3s ease;
+      text-align: center;
+      padding: 0.15rem 1rem; // Small padding on mobile
+      
+      @media (min-width: 768px) {
+        padding: 0; // Back to original desktop padding
+      }
+      
+      &:hover {
+        color: #aa8c64;
       }
     }
-  
-    .copy {
-      margin-top: 2rem;
+  }
+
+  .copy {
+    margin-top: 1rem;
     font-size: 0.95rem;
     color: #555;
-    }
-
-    // Optional subtle separator line like in the banner/product
-    &::before {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      //background-color: #bdaaaa;
-      margin: 0 auto 2rem auto;
-      border-radius: 2px;
-    }
-  
+    padding-top: 1rem;
+    border-top: 1px solid #d0c0c0; // Add subtle separator
+    
     @media (min-width: 768px) {
-      .nav div {
-        align-items: flex-start;
-      }
+      margin-top: 3rem;
     }
-  
-
   }
+
+  // Optional subtle separator line like in the banner/product
+  &::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    //background-color: #bdaaaa;
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .nav div {
+      align-items: flex-start;
+    }
+  }
+}

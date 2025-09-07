@@ -57,13 +57,19 @@
         font-size: 1.1rem;
         line-height: 1.6;
         color: #555;
-      }
+        @media (max-width: 768px) {
+            font-size: 1rem; // slightly smaller on mobile
+          }
+        }
   
       .price {
         font-size: 1.6rem;
         font-weight: 700;
         color: #111;
-      }
+        @media (max-width: 768px) {
+            font-size: 1.4rem;
+          }
+        }
   
       .addToCartBtn {
         margin-top: 1rem;
@@ -71,15 +77,37 @@
         @media (max-width: 768px) {
           width: 100%;
           text-align: center;
+          align-items: center;
+          button {
+            width: 90%; // make button almost full width on mobile
+          }
         }
       }
     }
   
-    .backButton {
-      margin-bottom: 2rem;
-      text-align:end;
-      
+    .shipping {
+        font-size: 0.95rem;
+        color: #555;
+        margin-top: 0.5rem;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+        }
       }
     }
   
+
+  .backButton {
+    margin-top: 2rem;
+    text-align: end;
+
+    @media (max-width: 768px) {
+      text-align: center;
+
+      button {
+        width: 50%; // make back button more prominent on mobile
+      }
+    }
+  }
+
   
