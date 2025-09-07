@@ -1,48 +1,73 @@
 .card {
-    text-align: center;
-    padding: 1rem;
-    font-weight:bolder;
-    border-radius: 8px;
-    background-color:#f2eaea;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 16px;
+  background-color: #f2eaea;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
+  border: 0.5px solid #b4aaaa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background-color: #f3eeee;
+  }
+
+  .imageContainer {
+    width: 100%;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    font-family: 'Playfair Display', serif;
-    border: 0.5px solid #b4aaaa;
-    h3 {
-      font-size: 1.4rem;
-      margin: 0.5rem 0;
+    border-radius: 16px;
+    cursor: pointer;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.6rem;  // bigger, elegant
+    margin: 0.5rem 0;
+    font-weight: 700;
+    color: #332f2f;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: #555;
+    margin: 0.25rem 0;
+    font-weight: 500;
+  }
+
+  .button {
+    margin-top: 0.75rem;
+    button {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
-    }
-  
-    p {
-      color: #666;
-      font-size: 1.4rem;
-    }
-  
-    &:hover {
-      transition:background-color 0.1s ease, border 0.1s ease;
-      //border: 0.5px solid #b4aaaa;
-     background-color:#f3eeee;
-     // border: 0.5px solid #b4aaaa;
-     // transition: background-color 0.3s ease;
-    }
-    .imageContainer {
-       // position: relative;
-        width: 100%;
-        aspect-ratio: 1 / 1;
-       overflow: hidden;
-        border-radius: 8px;
-      }
-    
-      .image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-     
+      background-color: #aa8c64;
+      color: #fff;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #8a704f;
+        transform: scale(1.03);
       }
     }
-  
- 
-  
+  }
+}

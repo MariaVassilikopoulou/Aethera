@@ -1,139 +1,125 @@
-/* src/app/components/Banner.module.scss */
 .banner {
-    background: #ddd5d5;
-    padding: 3rem 1.5rem;
-    text-align: center;
-    color: #332f2f;
-  //font-family: 'Playfair Display', serif;
-  font-family: 'Segoe UI', sans-serif; 
+  background: #ddd5d5;
+  padding: 3rem 1.5rem;
+  color: #332f2f;
+  font-family: 'Segoe UI', sans-serif;
 
-    @media (min-width: 768px) {
-      text-align: left;
-      padding: 4rem 6rem;
-    }
+  @media (min-width: 768px) {
+    padding: 4rem 6rem;
   }
-    
-  .shipping {
-    //font-size: 0.9rem;
-    //color:  #666;
-    margin-bottom: 0.5rem;
-   // font-weight: 700;
-    font-size: 1rem;
-    color: #555;
-  
+}
 
-  }
-  
-  .content {
-    
-    display: flex;
-    flex-direction: column;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-  
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
   }
-  
-  .text {
-    max-width: 500px;
-  
-    @media (min-width: 768px) {
-      margin-right: 1rem;
-    }
+}
+
+.text {
+  max-width: 500px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+    margin-right: 2rem;
   }
-  
-  .label {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #aa8c64;
-    font-weight: bold;
-    padding: 1rem;
-    margin-left: 1.5rem;
+}
+
+.label {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #aa8c64;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.shipping {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;      // bigger for banner impact
+  font-weight: 700;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
   }
-  
-  .title {
-    font-size: 2rem;
-    //font-weight: bold;
-    margin: 0.5rem 0;
-    font-family: 'Playfair Display', serif;
-    @media (min-width: 768px) {
-      font-size: 1rem;
-    }
-  
-    @media (min-width: 1024px) {
-      font-size: 1.9rem;
-     
-    }
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
   }
-  
-  .subtitle {
-    font-size: 1rem;
-    color: #555;
-  
-    @media (min-width: 768px) {
-      font-size: 1.15rem;
-    }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
   }
-  
-  .button {
-    margin-top: 2rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #aa8c64;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  
-    &:hover {
-      background-color: #8a704f;
-    }
+
+  @media (min-width: 1024px) {
+    font-size: 1.4rem;
   }
-  
-  .image {
-    margin-top: 2rem;
-    
-    @media (min-width: 768px) {
-      margin-top: 0;
-    }
-  
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-  
-      // responsive sizing for the image
-      max-width: 300px; // default (mobile/tablets)
-  
-      @media (min-width: 1024px) {
-        max-width: 400px; // laptops
-      }
-  
-      @media (min-width: 1440px) {
-        max-width: 500px; // big screens
-      }
-    }
+}
+
+.button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #aa8c64;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #8a704f;
+    transform: scale(1.05);
   }
-  
-  
-  /* .image img {
+}
+
+.image {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-  
-    @media (min-width: 768px) {
-      max-width: 350px; // tablets
-    }
-  
+    object-fit: cover;
+    border-radius: 32px;
+    transition: transform 0.3s ease;
+    max-width: 90%; 
+
     @media (min-width: 1024px) {
-      max-width: 420px; // laptops
+      max-width: 700px;
     }
-  
     @media (min-width: 1440px) {
-      max-width: 500px; // big screens
+      max-width: 900px;
+    }
+
+    &:hover {
+      transform: scale(1.03);
     }
   }
-  */
+}

@@ -1,80 +1,86 @@
-/* Header.module.scss */
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #ddd;
-    font-family: 'Playfair Display', serif;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: #f2eaea;
-  
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Playfair Display', serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f2eaea;
+}
 
-  .searchWrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-   
+.logo {
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-    .searchInput {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
-      outline: none;
-      transition: all 0.3s ease;
-     width: 30rem;
-     &:hover {
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .searchInput {
+    width: 300px;
+    max-width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover,
+    &:focus {
       border-color: #8c7b75;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-    
   }
+
+  .searchDropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    z-index: 200;
+    max-height: 300px;
+    overflow-y: auto;
+
+    li {
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
 }
 
 .icon {
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 
   &:hover {
     color: #8c7b75;
   }
 }
-  .logo {
-    font-weight: bold;
-    font-size: 2rem;
-  }
-  .icons  {
-    margin-left: 1rem;
-    font-size: 1.2rem;
-    display: flex;
-    gap: 1rem; 
-    
-}
-.authArea {
-  margin-left: 1rem;
-
-  button {
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-
-    &:hover {
-      color: #8c7b75;
-    }
-  }
-
-  p {
-    font-size: 0.85rem;
-    margin: 0;
-  }
-}
-
 
 .dropdown {
   position: absolute;
@@ -95,6 +101,7 @@
     padding: 0.5rem 0;
     text-align: left;
     cursor: pointer;
+
     &:hover {
       background: #f0f0f0;
     }
@@ -105,7 +112,6 @@
     font-weight: bold;
   }
 }
-
 
 .badge {
   position: absolute;

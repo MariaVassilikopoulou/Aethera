@@ -1,24 +1,86 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-  
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.8;
+  color: #332f2f;
+  background-color: #f9f7f7;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #8c7b75;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #aa8c64;
+    border-bottom: 2px solid #bdaaaa;
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    padding: 3rem 2rem;
+
     h1 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
     }
-  
+
     h2 {
-      font-size: 1.25rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
     }
-  
+
     p {
-      margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
   }
-  
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    padding: 4rem 3rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+    }
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1440px) {
+    padding: 5rem 6rem;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}

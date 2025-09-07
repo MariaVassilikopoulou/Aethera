@@ -1,0 +1,131 @@
+.checkoutPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Playfair Display', serif;
+    color: #332f2f;
+  
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
+    }
+  
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+  
+      @media(min-width: 768px) {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+  
+      .form {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 32px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: translateY(-2px);
+        }
+  
+        h2 {
+          font-size: 1.75rem;
+          margin-bottom: 1.5rem;
+          font-weight: 700;
+          color: #aa8c64;
+        }
+  
+        input, select {
+          padding: 0.8rem 1rem;
+          border: 1px solid #ccc;
+          border-radius: 12px;
+          font-size: 1rem;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
+  
+          &:focus {
+            border-color: #aa8c64;
+            box-shadow: 0 0 0 3px rgba(170, 140, 100, 0.15);
+          }
+        }
+  
+        button {
+            margin-top: 1rem;
+          
+            @media (max-width: 768px) {
+              width: 100%;
+              text-align: center;
+            }
+          }
+      }
+      .summary ul li {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 12px;
+          object-fit: cover;
+        }
+      
+        span {
+          font-size: 1rem;
+          color: #332f2f;
+        }
+      }
+      
+      .summary {
+        flex: 1;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 32px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+  
+        &:hover {
+          transform: translateY(-2px);
+        }
+  
+        h2 {
+          font-size: 1.75rem;
+          margin-bottom: 1.5rem;
+          font-weight: 700;
+          color: #aa8c64;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 1.5rem 0;
+  
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+          }
+        }
+  
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          text-align: right;
+        }
+      }
+    }
+  }
+  

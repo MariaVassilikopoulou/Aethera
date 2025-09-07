@@ -14,7 +14,7 @@ interface BannerProps {
 export default function Banner({ title, subtitle, shippingNote }: BannerProps) {
   const router = useRouter();
   const handlePreOrderClick = () => {
-    router.push('/products/baliscence'); // <-- navigate to product page
+    router.push('/preOrderProduct'); // <-- navigate to product page
   };
   return (
     <section className={styles.banner}>
@@ -28,11 +28,17 @@ export default function Banner({ title, subtitle, shippingNote }: BannerProps) {
           <p className={styles.subtitle}>{subtitle}</p>
           <Button size='lg' variant='primary' onClick={handlePreOrderClick}>Pre-order </Button>
         </div>
-
         <div className={styles.image}>
-          <Image src='/images/Right-Container.png' alt="banner image" width={500} height={500}  />
-        </div>
-      
+   <Image
+    src='/images/Right-Container.png'
+    alt="banner image"
+    width={800}       // increase default size
+    height={400}      // make it more banner-like
+    style={{ objectFit: 'cover', borderRadius: '32px' }} // cover for full banner look
+    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 60vw"
+    priority
+  />
+</div>
         
       </div>
     </section>

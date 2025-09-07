@@ -21,23 +21,36 @@ export default function ProductPage() {
   const handleContinueShopping = () => {
     router.push('/');
 };
-  useEffect(() => {
-    const getProduct = async () => {
-      if (!token) return; // wait for token
+useEffect(() => {
+  const getProduct = async () => {
+    if (!token) return; // wait for token
 
-      try {
-        const products = await fetchProducts(token); // fetch all products
-        const foundProduct = products.find(p => p.id === id);
-        if (!foundProduct) throw new Error("Product not found");
-        setProduct(foundProduct);
-      } catch (err: unknown) {
-        if (err instanceof Error) setError(err.message);
-        console.error(err);
-      }
-    };
+    // ✅ Special case for pre-order
+    if (id === "preorder-product") {
+      setProduct({
+        id: "preorder-product",
+        name: "Orchidée Blanche",
+        price: 120,
+        imageUrl: "/images/Right-Container.png",
+        description: "EAU DE PARFUM - Orchidée Blanche – Natural notes of white orchid and creamy vanilla, a natural touch of sophistication.",
+        category: "Pre-order",
+      });
+      return;
+    }
 
-    getProduct();
-  }, [id, token]);
+    try {
+      const products = await fetchProducts(token); // fetch all real products
+      const foundProduct = products.find(p => p.id === id);
+      if (!foundProduct) throw new Error("Product not found");
+      setProduct(foundProduct);
+    } catch (err: unknown) {
+      if (err instanceof Error) setError(err.message);
+      console.error(err);
+    }
+  };
+
+  getProduct();
+}, [id, token]);
 
   const handleAddToCart = () => {
     if (product) {
@@ -55,9 +68,15 @@ export default function ProductPage() {
   
   <h1>{product.name}</h1>
   <div className={styles.content}>
-    <div className={styles.imageContainer}>
-      <Image src={product.imageUrl} alt={product.name} width={400} height={400} />
-    </div>
+  <div className={styles.imageContainer}>
+  <Image
+    src={product.imageUrl}
+    alt={product.name}
+    width={400}
+    height={400}
+    className={styles.img}  // <-- apply the CSS
+  />
+</div>
     <div className={styles.details}>
       <p>{product.description}</p>
       <p className={styles.price}>€{product.price.toFixed(2)}</p>

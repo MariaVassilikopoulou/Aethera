@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "../terms/Terms.module.scss";
+import Header from "../components/Header";
 
 const PrivacyPage = () => {
   return (
+    <><Header/>
     <div className={styles.container}>
       <h1>Privacy Policy</h1>
       <p>
@@ -44,6 +46,7 @@ const PrivacyPage = () => {
         at support@aethera.com.
       </p>
     </div>
+    </>
   );
 };
 

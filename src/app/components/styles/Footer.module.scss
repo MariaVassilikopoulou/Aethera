@@ -21,17 +21,20 @@
         }
       }
   */
+
+  @media (min-width: 768px) {
+    padding: 2rem 3rem;
+  }
+
+  .extradiv{margin-top: 3rem;}
     .container {
-     
-    
-      position: relative;
-      z-index: 2;
-      padding: 2.5rem;
-     display: flex;
-     flex-direction: column;
- 
-     border-top: 3px solid #bdaaaa;
-    
+      display: flex;
+      flex-direction: column;
+      align-items:normal;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 3px solid #bdaaaa;
     }
   
     .logo {
@@ -39,29 +42,54 @@
       font-weight: bold;
       margin-bottom: 1rem;
     }
-  
+  p{ font-weight:600;
+    font-family: 'Segoe UI', sans-serif;}
+
+
     .nav {
       
       display: flex;
-      justify-content:space-around;
+      justify-content:center;
       flex-wrap: wrap;
       gap: 1.5rem;
       margin-bottom: 1rem;
-  
-      a {
-        color: #0f0f0f;;
+      @media (min-width: 768px) {
+        justify-content: space-around; // spread out on larger screens
+      }
+      a, span {
+        color: #332f2f;
         text-decoration: none;
+        font-size: 1.125rem;
         transition: color 0.3s ease;
-  
+
         &:hover {
-          color: #fff;
+          color: #aa8c64;
         }
       }
     }
   
     .copy {
-      font-size: 0.875rem;
-      color: #999;
-      margin-top: 1rem;
+      margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #555;
     }
+
+    // Optional subtle separator line like in the banner/product
+    &::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      //background-color: #bdaaaa;
+      margin: 0 auto 2rem auto;
+      border-radius: 2px;
+    }
+  
+    @media (min-width: 768px) {
+      .nav div {
+        align-items: flex-start;
+      }
+    }
+  
+
   }

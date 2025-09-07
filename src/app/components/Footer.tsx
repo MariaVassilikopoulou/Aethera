@@ -12,6 +12,7 @@ const Footer = () => {
       
       <div className={styles.container}>
        {/*<div className={styles.logo}>Aethera</div> */}
+       <div className={styles.extradiv}>
         <nav className={styles.nav}>
             <div>
         <p>Contact</p>
@@ -30,7 +31,7 @@ const Footer = () => {
           <p>Returns</p>
          </div>
         </nav>
-
+        </div>
         <div className={styles.copy}>&copy; {new Date().getFullYear()} Aethera. All rights reserved.</div>
       </div>
     </footer>

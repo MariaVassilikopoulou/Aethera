@@ -29,24 +29,23 @@
     }
   
     .imageContainer {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    
-      .img {   // use the class you added
-        width: 100%; // take all available width
-        max-width: 350px; // limit for very large screens
-        height: auto;
-        border-radius: 12px;
-        object-fit: contain; // better for product images
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-        transition: transform 0.3s ease;
-    
-        &:hover {
-          transform: scale(1.03);
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      
+        .img {
+          width: 100%; // take all available width
+          max-width: 400px; // limit for larger screens
+          height: auto;
+          border-radius: 32px;
+          object-fit: contain; // keep aspect ratio
+          transition: transform 0.3s ease;
+      
+          &:hover {
+            transform: scale(1.03);
+          }
         }
       }
-    }
   
     .details {
       flex: 1;

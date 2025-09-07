@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "../terms/Terms.module.scss";
+import Header from "../components/Header";
 
 const TermsPage = () => {
   return (
+      <><Header/>
     <div className={styles.container}>
       <h1>Terms and Conditions</h1>
       <p>
@@ -40,6 +42,7 @@ const TermsPage = () => {
         support@aethera.com.
       </p>
     </div>
+    </>
   );
 };
 
