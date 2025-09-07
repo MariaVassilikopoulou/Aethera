@@ -119,6 +119,7 @@ export default function HomePage() {
         title="Orchidée Blanche"
         subtitle="A fragrance that carries you away."
         shippingNote="Meet first the new summer fragrance!"
+        
       />
 
       <section className={styles.intro}>
