@@ -4,7 +4,7 @@
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
 import { useState, useEffect } from "react";
-import { AuthError  /*AuthenticationResult,*/ } from "@azure/msal-browser";
+import { AuthError,  AuthenticationResult } from "@azure/msal-browser";
 
 export function useAuth() {
   const { instance, accounts } = useMsal();
@@ -63,8 +63,8 @@ export function useAuth() {
       }
 
       // Use popup login with user flow
-      //const response: AuthenticationResult = await instance.loginPopup(loginRequest);
-      //#####console.log("Login successful:", response);
+      const response: AuthenticationResult = await instance.loginPopup(loginRequest);
+      console.log("Login successful:", response);
     } catch (error) {
       console.error("Login failed:", error);
       
