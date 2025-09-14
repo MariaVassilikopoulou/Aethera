@@ -4,7 +4,7 @@
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
 import { useState, useEffect } from "react";
-import { AuthenticationResult, AuthError } from "@azure/msal-browser";
+import { AuthError  /*AuthenticationResult,*/ } from "@azure/msal-browser";
 
 export function useAuth() {
   const { instance, accounts } = useMsal();
@@ -36,7 +36,7 @@ export function useAuth() {
           });
           setToken(accessToken.accessToken);
         } catch (error) {
-          console.warn("Silent token acquisition failed, fallback to popup", error);
+          console.warn("Silent token failed, fallback to popup", error);
           try {
             // Fallback to popup if silent fails
             const tokenResponse = await instance.acquireTokenPopup({
@@ -45,7 +45,7 @@ export function useAuth() {
             });
             setToken(tokenResponse.accessToken);
           } catch (popupError) {
-            console.error("Token acquisition failed", popupError);
+            console.error("Token failed", popupError);
             setToken(null);
           }
         }
@@ -63,8 +63,8 @@ export function useAuth() {
       }
 
       // Use popup login with user flow
-      const response: AuthenticationResult = await instance.loginPopup(loginRequest);
-      console.log("Login successful:", response);
+      //const response: AuthenticationResult = await instance.loginPopup(loginRequest);
+      //#####console.log("Login successful:", response);
     } catch (error) {
       console.error("Login failed:", error);
       

@@ -65,7 +65,7 @@ export default function HomePage() {
   useEffect(() => {
     const getProducts = async () => {
       if (!token) return;
-      console.log(" Token before fetch:", token);
+     //#### console.log(" Token before fetch:", token);
 
       try {
         const data = await fetchProducts(token);

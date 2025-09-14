@@ -15,7 +15,7 @@
     // 🔹 Get cart from backend
     export async function getCart(token: string): Promise<CartDto> {
       const url = `${API_BASE}/api/Cart`;
-      console.log("Fetching cart from Next.js API route:", url);
+     //###console.log("Fetching cart from Next.js API route:", url);
     
       const res = await fetch(url, {
         headers: { Authorization: `Bearer ${token}` },
@@ -35,8 +35,8 @@
     // 🔹 Save cart to backend
     export async function saveCart(cart: CartDto, token: string): Promise<CartDto> {
       const url = `${API_BASE}/api/Cart`;
-      console.log("Saving cart via Next.js API route:", url);
-      console.log("Cart data (frontend -> backend):", cart);
+      //###console.log("Saving cart via Next.js API route:", url);
+      //####console.log("Cart data (frontend -> backend):", cart);
     
       try {
         const res = await fetch(url, {
