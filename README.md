@@ -1,9 +1,9 @@
-Aethera E-Commerce Platform
-Overview
+# Aethera Webshop
+## Overview
 
 The Aethera Webshop is a full-stack online store built with Next.js and Typescript, secured using Microsoft Entra External ID, and integrated with a custom backend API. It delivers a modern shopping experience with real-time cart syncing, secure authentication, and a smooth order workflow.
 
-🚀 Key Features
+## 🚀 Key Features
 • Microsoft Entra External ID Authentication
 
 User login and authorization are handled through MSAL React. Access tokens are issued by Entra External ID and passed to protected backend endpoints for authorization.
@@ -24,12 +24,12 @@ Users can place orders through a streamlined checkout process. After a successfu
 
 Designed to adapt smoothly across desktop and mobile devices.
 
-⚙️ Key Technologies
-1. Next.js (Full-Stack React Framework)
+## ⚙️ Key Technologies
+##### 1. Next.js (Full-Stack React Framework)
 
 Provides client-side UI, server-side API endpoints, and a unified deployment environment. Ideal for combining authentication, user interactions, and backend communication in one codebase.
 
-2. Microsoft Entra External ID (CIAM)
+##### 2. Microsoft Entra External ID (CIAM)
 
 Handles user authentication and token issuance.
 
@@ -39,12 +39,12 @@ JWT Access Tokens are forwarded to the server
 
 JOSE verifies tokens using Azure’s public JWKS keys
 
-3. Zustand (State Management)
+##### 3. Zustand (State Management)
 
 A lightweight and predictable global state manager used to control the cart logic. Its simple API makes cart operations fast, clear, and easy to synchronize with the backend.
 
-⭐ Learning Outcomes and Best Practices
-Learning Outcomes
+## ⭐ Learning Outcomes and Best Practices
+### Learning Outcomes
 
 Developed a deeper understanding of Azure AD CIAM / Entra External ID and the full token lifecycle.
 
@@ -56,7 +56,7 @@ Built secure, maintainable protected API routes in Next.js.
 
 Improved skills in writing clean, reusable authentication utilities.
 
-Best Practices
+### Best Practices
 
 Perform all token validation on the server using the JWKS key set — never trust client-side validation alone.
 
@@ -64,7 +64,7 @@ Keep sensitive values in server-only environment variables and expose only what 
 
 Avoid hardcoding tenant IDs, client IDs, and endpoints — always build them from .env values.
 
-Separate concerns:
+### Separate concerns:
 
 MSAL handles client authentication
 
