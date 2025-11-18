@@ -16,16 +16,16 @@ export default function ProductPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
   const addToCart = useCartStore(state => state.addToCart);
-  const { token } = useAuth(); // <-- get your Azure auth token
+  const { token } = useAuth(); 
   const router = useRouter();
   const handleContinueShopping = () => {
     router.push('/');
 };
 useEffect(() => {
   const getProduct = async () => {
-    if (!token) return; // wait for token
+    if (!token) return; 
 
-    // ✅ Special case for pre-order
+    
     if (id === "preorder-product") {
       setProduct({
         id: "preorder-product",
@@ -39,7 +39,7 @@ useEffect(() => {
     }
 
     try {
-      const products = await fetchProducts(token); // fetch all real products
+      const products = await fetchProducts(token); 
       const foundProduct = products.find(p => p.id === id);
       if (!foundProduct) throw new Error("Product not found");
       setProduct(foundProduct);
@@ -74,7 +74,7 @@ useEffect(() => {
     alt={product.name}
     width={400}
     height={400}
-    className={styles.img}  // <-- apply the CSS
+    className={styles.img}  
   />
 </div>
     <div className={styles.details}>

@@ -1,5 +1,5 @@
 .productPage {
-    max-width: 1200px; // allow more space for bigger images
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 2rem;
     font-family: 'Playfair Display', serif;
@@ -34,11 +34,11 @@
         justify-content: center;
       
         .img {
-          width: 100%; // take all available width
-          max-width: 400px; // limit for larger screens
+          width: 100%; 
+          max-width: 400px; 
           height: auto;
           border-radius: 32px;
-          object-fit: contain; // keep aspect ratio
+          object-fit: contain; 
           transition: transform 0.3s ease;
       
           &:hover {
@@ -58,7 +58,7 @@
         line-height: 1.6;
         color: #555;
         @media (max-width: 768px) {
-            font-size: 1rem; // slightly smaller on mobile
+            font-size: 1rem; 
           }
         }
   
@@ -79,7 +79,7 @@
           text-align: center;
           align-items: center;
           button {
-            width: 90%; // make button almost full width on mobile
+            width: 90%; 
           }
         }
       }
@@ -105,7 +105,7 @@
       text-align: center;
 
       button {
-        width: 50%; // make back button more prominent on mobile
+        width: 50%; 
       }
     }
   }

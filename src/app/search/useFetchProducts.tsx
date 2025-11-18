@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 export interface Product {
   id: string | number;
   name: string;
-  // Add other fields as needed (price, description, etc.)
+  
 }
 
 export function useFetchProducts(searchQuery: string) {
@@ -21,7 +21,7 @@ export function useFetchProducts(searchQuery: string) {
     setError(null);
 
     try {
-      // Assume validateAccessToken is a utility that fetches/refreshes the token
+     
       const accessToken = await validateAccessToken();
 
       const response = await fetch(`/api/products?search=${encodeURIComponent(searchQuery)}`, {
@@ -38,7 +38,7 @@ export function useFetchProducts(searchQuery: string) {
 
       const data = await response.json();
 
-      // Assuming the backend returns products in data.products
+      
       setProducts(data.products || []);
     } catch (err: unknown) {
         let message = 'Error fetching products';
@@ -59,8 +59,8 @@ export function useFetchProducts(searchQuery: string) {
   return { products, loading, error, refetch: fetchProducts };
 }
 
-// You should have validateAccessToken implemented elsewhere or adapt to your auth flow.
+
 async function validateAccessToken(): Promise<string> {
-  // dummy implementation, replace with real token fetching/refreshing
+  
   return 'your-valid-token';
 }

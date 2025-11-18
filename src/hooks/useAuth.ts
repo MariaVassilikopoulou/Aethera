@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
@@ -13,7 +12,7 @@ export function useAuth() {
   const [token, setToken] = useState<string | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Initialize MSAL instance
+  
   useEffect(() => {
     const initializeMsal = async () => {
       if (!isInitialized) {
@@ -29,21 +28,23 @@ export function useAuth() {
     const fetchToken = async () => {
       if (isAuthenticated && account && isInitialized) {
         try {
-          // Acquire token silently
+          
           const accessToken = await instance.acquireTokenSilent({
             ...loginRequest,
             account,
           });
           setToken(accessToken.accessToken);
+         //##### console.log(accessToken);
         } catch (error) {
           console.warn("Silent token failed, fallback to popup", error);
           try {
-            // Fallback to popup if silent fails
+            
             const tokenResponse = await instance.acquireTokenPopup({
               ...loginRequest,
               account,
             });
             setToken(tokenResponse.accessToken);
+            //#####console.log(tokenResponse);
           } catch (popupError) {
             console.error("Token failed", popupError);
             setToken(null);
@@ -62,13 +63,13 @@ export function useAuth() {
         return;
       }
 
-      // Use popup login with user flow
+      
       const response: AuthenticationResult = await instance.loginPopup(loginRequest);
       console.log("Login successful:", response);
     } catch (error) {
       console.error("Login failed:", error);
       
-      // Enhanced error logging with proper type checking
+      
       if (error instanceof AuthError) {
         console.error("Auth Error Code:", error.errorCode);
         console.error("Auth Error Message:", error.errorMessage);

@@ -1,4 +1,3 @@
-// src/app/search/SearchClient.tsx
 "use client";
 
 import { useSearchParams } from 'next/navigation';
@@ -13,7 +12,7 @@ export default function SearchClient() {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const data = await fetchProducts(query); // Update fetchProducts to accept a query
+        const data = await fetchProducts(query); 
         setProducts(data);
       } catch (error) {
         console.error('Failed to load products:', error);

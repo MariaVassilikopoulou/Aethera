@@ -1,4 +1,3 @@
-// src/app/components/Banner.tsx
 'use client';
 import styles from '@/app/components/styles/Banner.module.scss';
 import Image from 'next/image';
@@ -14,7 +13,7 @@ interface BannerProps {
 export default function Banner({ title, subtitle, shippingNote }: BannerProps) {
   const router = useRouter();
   const handlePreOrderClick = () => {
-    router.push('/preOrderProduct'); // <-- navigate to product page
+    router.push('/preOrderProduct'); 
   };
   return (
     <section className={styles.banner}>

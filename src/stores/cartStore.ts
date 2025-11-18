@@ -24,13 +24,13 @@ interface CartStore {
 export const useCartStore = create<CartStore>((set, get) => ({
   cart: [],
 
-  // 🔹 Fetch cart from backend
+ 
   fetchCart: async (token) => {
     const result = await getCart(token);
     set({ cart: result.items }); 
   },
 
-  // 🔹 Add item
+  
   addToCart: async (product, token) => {
     const cart = get().cart;
     const existing = cart.find(item => item.productId === product.id);
@@ -61,14 +61,14 @@ export const useCartStore = create<CartStore>((set, get) => ({
         console.log("Cart saved successfully to backend");
       } catch (error) {
         console.error("Failed to save cart to backend:", error);
-        set({ cart }); // revert to old state
+        set({ cart }); 
       }
     } else {
       console.log("No token provided, cart only saved locally");
     }
   },
 
-  // 🔹 Remove item
+  
   removeFromCart: async (productId, token) => {
     const updatedCart = get().cart.filter(item => item.productId !== productId);
     set({ cart: updatedCart });
@@ -78,7 +78,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
     }
   },
 
-  // 🔹 Clear cart
+  
   clearCart: async (token) => {
     set({ cart: [] });
     if (token) {
@@ -86,7 +86,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
     }
   },
 
-  // 🔹 Increase quantity
+  
   increaseQuantity: async (productId, token) => {
     const updatedCart = get().cart.map(item =>
       item.productId === productId
@@ -100,7 +100,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
     }
   },
 
-  // 🔹 Decrease quantity
+  
   decreaseQuantity: async (productId, token) => {
     const cart = get().cart;
     const item = cart.find(i => i.productId === productId);

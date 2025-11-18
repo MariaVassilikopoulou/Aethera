@@ -36,16 +36,16 @@
       display: flex;
       justify-content: center;
       
-      // Mobile-specific container adjustments
+      
       @media (max-width: 768px) {
         width: 100%;
-        padding: 0 1rem; // add some padding on mobile
+        padding: 0 1rem; 
       }
 
       .img {
         height: auto;
         border-radius: 32px;
-        object-fit: contain; // keep aspect ratio
+        object-fit: contain; 
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         transition: transform 0.3s ease;
 
@@ -53,17 +53,17 @@
           transform: scale(1.03);
         }
 
-        // Desktop and tablet sizes
+        
         @media (min-width: 769px) {
           width: 100%;
           max-width: 400px;
         }
 
-        // Mobile - make image much larger and more prominent
+        
         @media (max-width: 768px) {
-          width: 100% !important; // force full width
-          max-width: 100% !important; // remove max-width restriction
-          min-width: 280px; // ensure minimum size
+          width: 100% !important; 
+          max-width: 100% !important; 
+          min-width: 280px; 
           border-radius: 32px;
         }
       }
@@ -106,7 +106,7 @@
           justify-content: center;
 
           button {
-            width: 90%; // almost full width on mobile
+            width: 90%; 
           }
         }
       }
@@ -121,7 +121,7 @@
       text-align: center;
 
       button {
-        width: 50%; // bigger and centered on mobile
+        width: 50%; 
       }
     }
   }

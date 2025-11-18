@@ -96,8 +96,8 @@
 
 .image {
   width: 100%;
-  aspect-ratio: 4 / 2; // Adjust ratio for banner
-  position: relative;   // Required for Next.js Image with fill
+  aspect-ratio: 4 / 2; 
+  position: relative;  
   margin-top: 2rem;
   /*width: 100%;
   aspect-ratio: 1 / 1;
@@ -106,9 +106,9 @@
   cursor: pointer;*/
 
   @media (min-width: 768px) {
-    width: 45%;           // smaller than 50% to reduce dominance
-    max-width: 500px;     // limit the image width
-    aspect-ratio: auto;   // let it scale naturally
+    width: 45%;           
+    max-width: 500px;     
+    aspect-ratio: auto;   
     margin-top: 0;
   }
 
@@ -125,13 +125,6 @@
 
     &:hover {
      transform: scale(1.03);
-     // transform: translateY(-15px);
-      //box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      //background-color: #f3eeee;
-     /* width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;*/
 
     }
   }

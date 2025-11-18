@@ -12,10 +12,11 @@ import Image from 'next/image';
 export default function CheckoutPage() {
   const cart = useCartStore(state => state.cart);
   const fetchCart = useCartStore(state => state.fetchCart);
+  const clearCart = useCartStore(state => state.clearCart);
   const { token } = useAuth();
   const router = useRouter();
 
-  // Form state
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -52,15 +53,23 @@ export default function CheckoutPage() {
     try {
       const res = await fetch('/api/Orders', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, },
         body: JSON.stringify(order),
       });
   
-      if (!res.ok) {
+      const data = await res.json();
+      /*if (!res.ok) {
         toast.error(" Something went wrong, please try again.");
         return;
+      }*/
+
+        if (token) {
+          await clearCart(token);
+        } else {
+          clearCart(); 
       }
-      const data = await res.json();
+
+      
   
       toast.success(`Order confirmed! Order ID: ${data.order.id} -- Thank you 🎉`);
       router.push('/');
@@ -100,7 +109,7 @@ export default function CheckoutPage() {
             </Button>
           </form>
 
-          {/* Order Summary */}
+     
           <div className={styles.summary}>
             <h2>Order Summary</h2>
             <ul>

@@ -39,7 +39,7 @@ const TermsPage = () => {
       <h2>5. Contact Us</h2>
       <p>
         If you have any questions regarding these terms, please contact us at
-        support@aethera.com.
+        supportt@aethera.com.
       </p>
     </div>
     </>

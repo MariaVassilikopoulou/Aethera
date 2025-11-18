@@ -10,9 +10,9 @@
       items: CartItem[];
     }
     
-    const API_BASE = ""; // Empty for relative URLs to Next.js API routes
+    const API_BASE = ""; 
     
-    // 🔹 Get cart from backend
+    
     export async function getCart(token: string): Promise<CartDto> {
       const url = `${API_BASE}/api/Cart`;
      //###console.log("Fetching cart from Next.js API route:", url);
@@ -32,7 +32,7 @@
       return JSON.parse(text) as CartDto;
     }
     
-    // 🔹 Save cart to backend
+    
     export async function saveCart(cart: CartDto, token: string): Promise<CartDto> {
       const url = `${API_BASE}/api/Cart`;
       //###console.log("Saving cart via Next.js API route:", url);

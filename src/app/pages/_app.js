@@ -1,4 +1,3 @@
-// pages/_app.js
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "../msalConfig";

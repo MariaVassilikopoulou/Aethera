@@ -1,4 +1,3 @@
-// components/AuthButton.tsx
 "use client"
 import { useMsal, useAccount, useIsAuthenticated } from "@azure/msal-react";
 import { loginRequest } from "@/authConfig";
@@ -17,7 +16,7 @@ export default function AuthButton() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      // Redirect to /home on successful login
+     
       router.push("/");
     }
   }, [isAuthenticated, router]);

@@ -1,4 +1,3 @@
-// src/hooks/useDebounce.ts
 import { useState, useEffect } from "react";
 
 export function useDebounce<T>(value: T, delay: number = 300): T {
@@ -7,7 +6,7 @@ export function useDebounce<T>(value: T, delay: number = 300): T {
   useEffect(() => {
     const handler = setTimeout(() => setDebouncedValue(value), delay);
 
-    return () => clearTimeout(handler); // cancel previous timeout
+    return () => clearTimeout(handler); 
   }, [value, delay]);
 
   return debouncedValue;

@@ -16,7 +16,7 @@ type Order = {
   createdAt: string;
 };
 
-// 🔹 Temporary in-memory "database"
+
 const orders: Order[] = [];
 
 export async function POST(req: Request) {
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     const { items, total, customer } = body;
 
     const newOrder: Order = {
-      id: Date.now().toString(), // simple unique ID
+      id: Date.now().toString(), 
       items,
       total,
       customer,
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
   }
 }
 
-// 🔹 Optional: GET all orders (for testing)
+
 export async function GET() {
   return NextResponse.json(orders);
 }

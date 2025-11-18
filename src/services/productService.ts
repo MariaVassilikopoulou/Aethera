@@ -14,7 +14,7 @@ export async function fetchProducts(token: string): Promise<Product[]> {
     const backendUrl = process.env.NEXT_PUBLIC_API_URL;
     
     if (!backendUrl) {
-      // Environment variable is missing → clear error
+      
       throw new Error(
         "NEXT_PUBLIC_API_URL is not defined. Make sure you set it in your Vercel (or hosting) environment."
       );
@@ -35,8 +35,8 @@ export async function fetchProducts(token: string): Promise<Product[]> {
     }
 
     const result = await response.json();
-    return result; // If backend returns an array directly
-    // return result.products; // Uncomment if backend wraps in { products: [...] }
+    return result; 
+    // return result.products;
     
   } catch (error) {
     console.error("Error fetching products:", error);

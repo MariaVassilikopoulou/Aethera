@@ -127,7 +127,7 @@
   border-radius: 50%;
   font-weight: bold;
 }
-/* 🔹 Mobile styles */
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -150,7 +150,7 @@
     margin-bottom: 1rem;
 
     .searchInput {
-      width: 100%; /* 🔹 full-width search on mobile */
+      width: 100%; 
     }
   }
 }

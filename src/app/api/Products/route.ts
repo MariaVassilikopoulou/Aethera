@@ -15,10 +15,10 @@ export async function GET(req: NextRequest) {
 
     const token = authorizationHeader.split(" ")[1];
 
-    // ✅ Validate the token
+   
     const user = await verifyAzureToken(token);
     console.log(user);
-    // You could restrict to certain users, groups, etc. using `user` info
+    
 
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
     if (!baseUrl) {
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 
     const response = await fetch(backendUrl, {
       headers: {
-        Authorization: `Bearer ${token}`, // Forward the token to ASP.NET
+        Authorization: `Bearer ${token}`, 
         "Content-Type": "application/json",
       },
     });

@@ -1,41 +1,3 @@
-
-/*"use client"
-import AuthButton from "../components/AuthButton";
-import styles from '@/app/components/styles/RegisterForm.module.scss'
-
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import {  useIsAuthenticated } from "@azure/msal-react";
-import Button from "../components/Button";
-
-export default function RegisterPage() {
-
-  const isAuthenticated = useIsAuthenticated();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/home"); // Redirect if logged in
-    }
-  }, [isAuthenticated, router]);
-
-
-  const handleGoOn = () => {
-    router.push("/home")
-  };
-  return (
-   
-    <div className={styles.authWrapper}>
-      <main className={styles.content}>
-        <h1>Create account</h1>
-        <Button onClick={handleGoOn}>GoOnAsGeust</Button>
-       <AuthButton/> 
-      </main>
-    </div>
-   
-  );
-}*/
-// \src\app\(auth)\page.tsx
 "use client"; 
 
 
@@ -65,7 +27,7 @@ export default function HomePage() {
   useEffect(() => {
     const getProducts = async () => {
       if (!token) return;
-     //#### console.log(" Token before fetch:", token);
+      //#####console.log(" Token before fetch:", token);
 
       try {
         const data = await fetchProducts(token);

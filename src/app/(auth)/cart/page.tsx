@@ -20,7 +20,7 @@ export default function CartPage() {
   const { token } = useAuth();
   const router = useRouter();
 
-  // 🔹 Fetch cart when token is ready
+
   useEffect(() => {
     if (token) {
       fetchCart(token);
@@ -59,7 +59,7 @@ export default function CartPage() {
   className={styles.image}
   onClick={() => {
     if (item.category?.trim() === 'Pre-order') {
-      router.push('/preOrderProduct'); // ✅ clean route
+      router.push('/preOrderProduct'); 
     } else {
       router.push(`/products/${item.productId}`);
     }
