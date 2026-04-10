@@ -28,16 +28,15 @@ export default function Banner({ title, subtitle, shippingNote }: BannerProps) {
           <Button size='lg' variant='primary' onClick={handlePreOrderClick}>Pre-order </Button>
         </div>
         <div className={styles.image}>
-   <Image
-    src='/images/Right-Container.png'
-    alt="banner image"
-    width={1000}
-  height={500}
-  style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '32px' }}
-    sizes="(max-width: 600px) 100vw, (max-width: 1200px) 80vw, 60vw, (max-width: 768px) 100vw, 50vw"
-    priority
-  />
-</div>
+          <Image
+            src='/images/Right-Container.png'
+            alt="banner image"
+            fill
+            style={{ objectFit: 'contain' }}
+            sizes="(max-width: 768px) 100vw, 45vw"
+            priority
+          />
+        </div>
         
       </div>
     </section>

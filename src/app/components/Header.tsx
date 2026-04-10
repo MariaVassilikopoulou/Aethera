@@ -1,11 +1,12 @@
 "use client";
 import styles from '@/app/components/styles/Header.module.scss';
-import { Search, User, ShoppingCart } from 'lucide-react';
+import { Search, User, ShoppingCart, Package, LogOut, LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "../../hooks/useAuth";
 import { useCartStore } from '@/stores/cartStore';
 import { fetchProducts, Product } from '../../services/productService';
+import Image from 'next/image';
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
@@ -112,8 +113,17 @@ export default function Header() {
       {results.length > 0 && (
         <ul className={styles.searchDropdown}>
           {results.map((p) => (
-            <li key={p.id} onClick={() => handleSelect(p)}>
-              {p.name} - €{p.price.toFixed(2)}
+            <li key={p.id} onClick={() => handleSelect(p)} className={styles.dropdownItem}>
+              <div className={styles.dropdownImg}>
+                <Image src={p.imageUrl} alt={p.name} fill style={{ objectFit: 'cover' }} sizes="44px" />
+              </div>
+              <div className={styles.dropdownInfo}>
+                <span className={styles.dropdownName}>{p.name}</span>
+                {p.category === 'Pre-order' && (
+                  <span className={styles.dropdownBadge}>Pre-order</span>
+                )}
+                <span className={styles.dropdownPrice}>€{p.price.toFixed(2)}</span>
+              </div>
             </li>
           ))}
         </ul>
@@ -131,22 +141,38 @@ export default function Header() {
             <div className={styles.dropdown}>
               {isAuthenticated ? (
                 <>
-                  <p>Hello, {account?.name || account?.username}</p>
-                  <button onClick={() => router.push('/profile')}>My Profile</button>
-                  <button onClick={handleLogout}>Logout</button>
+                  <div className={styles.dropdownHeader}>
+                    <div className={styles.avatar}>
+                      {(account?.name || account?.username || 'A')[0].toUpperCase()}
+                    </div>
+                    <div className={styles.dropdownUser}>
+                      <span className={styles.dropdownGreeting}>Welcome back</span>
+                      <span className={styles.dropdownName2}>{account?.name || account?.username}</span>
+                    </div>
+                  </div>
+                  <div className={styles.dropdownDivider} />
+                  <button className={styles.dropdownBtn} onClick={() => { router.push('/profile'); setShowMenu(false); }}>
+                    <User size={15} className={styles.dropdownBtnIcon} /> My Profile
+                  </button>
+                  <button className={styles.dropdownBtn} onClick={() => { router.push('/orders'); setShowMenu(false); }}>
+                    <Package size={15} className={styles.dropdownBtnIcon} /> My Orders
+                  </button>
+                  <div className={styles.dropdownDivider} />
+                  <button className={`${styles.dropdownBtn} ${styles.dropdownBtnLogout}`} onClick={handleLogout}>
+                    <LogOut size={15} className={styles.dropdownBtnIcon} /> Logout
+                  </button>
                 </>
               ) : (
                 <>
-                  <button
-                    onClick={() => {
-                      login();
-                      setShowMenu(false);
-                    }}
-                  >
-                    Login
+                  <div className={styles.dropdownHeader}>
+                    <p className={styles.dropdownWelcome}>Welcome to Aethera</p>
+                    <p className={styles.dropdownSub}>Sign in to your account</p>
+                  </div>
+                  <div className={styles.dropdownDivider} />
+                  <button className={`${styles.dropdownBtn} ${styles.dropdownBtnPrimary}`}
+                    onClick={() => { login(); setShowMenu(false); }}>
+                    <LogIn size={15} className={styles.dropdownBtnIcon} /> Sign In
                   </button>
-                 {/* <button onClick={() => setShowMenu(false)}>Continue as Guest</button>*/}
-                  <button onClick={handleLogout}>Logout</button>
                 </>
               )}
             </div>

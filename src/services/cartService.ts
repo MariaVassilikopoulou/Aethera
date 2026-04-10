@@ -33,6 +33,16 @@
     }
     
     
+    export async function deleteCart(token: string): Promise<void> {
+      const res = await fetch(`${API_BASE}/api/Cart`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok && res.status !== 404) {
+        console.error("deleteCart failed:", res.status, res.statusText);
+      }
+    }
+
     export async function saveCart(cart: CartDto, token: string): Promise<CartDto> {
       const url = `${API_BASE}/api/Cart`;
       //###console.log("Saving cart via Next.js API route:", url);

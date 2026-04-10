@@ -3,6 +3,7 @@
 
 import Banner from '../components/Banner';
 import ProductCard from '../components/ProductCard';
+import Newsletter from '../components/Newsletter';
 import styles from './home/home.module.scss';
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
@@ -31,7 +32,8 @@ export default function HomePage() {
 
       try {
         const data = await fetchProducts(token);
-        setProducts(data);
+        const perfumes = data.filter(p => p.category?.toLowerCase() !== 'pre-order');
+        setProducts(perfumes);
       } catch (error) {
         console.error(" Could not load products:", error);
       }
@@ -59,10 +61,13 @@ export default function HomePage() {
       <main className={styles.home}>
         <Header/>
        
-        {/* Show this only if logged in */}
-        {isAuthenticated && ( 
+        {isAuthenticated && (
           <div className={styles.welcomeBanner}>
-          <p >Welcome, {account?.name || account?.username}</p>
+            <span className={styles.welcomeRule} />
+            <p className={styles.welcomeText}>
+              Welcome back, <em>{account?.name || account?.username}</em>
+            </p>
+            <span className={styles.welcomeRule} />
           </div>
         )}  
          
@@ -85,9 +90,14 @@ export default function HomePage() {
       />
 
       <section className={styles.intro}>
-        <p>
-          Find your signature fragrance with Aethera – where elegance meets the finest ingredients.
+        <span className={styles.introAccent}>✦</span>
+        <p className={styles.introText}>
+          Find your signature fragrance with Aethera
         </p>
+        <p className={styles.introSub}>
+          where elegance meets the finest ingredients
+        </p>
+        <span className={styles.introAccent}>✦</span>
       </section>
 
       <section className={styles.products}>
@@ -104,6 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Newsletter />
       <Footer/>
     </main>
   );

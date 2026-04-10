@@ -1,0 +1,29 @@
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #aa8c64;
+    margin-bottom: 0.5rem;
+  }
+
+  .stripeElement {
+    padding: 1.25rem;
+    border: 1px solid #e0d8d0;
+    border-radius: 16px;
+    background: #faf9f8;
+  }
+
+  .error {
+    color: #c0392b;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    background: #fdf0ee;
+    border-radius: 10px;
+    border: 1px solid #f5c6c0;
+  }
+}

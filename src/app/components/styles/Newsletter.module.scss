@@ -6,7 +6,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     margin-top: 3rem;
     font-family: 'Playfair Display', serif;
-    border-top: 3px solid #bdaaaa;
     .content {
       max-width: 500px;
       margin: 0 auto;
@@ -22,7 +21,14 @@
         color: #555;
         margin-bottom: 1.5rem;
       }
-  
+
+      .signedIn {
+        font-size: 1rem;
+        color: #aa8c64;
+        font-style: italic;
+        margin: 0;
+      }
+
       .form {
         display: flex;
         flex-direction: column;
@@ -39,7 +45,22 @@
       }
     }
   
-    @media (min-width: 600px) {
+    .waveTop {
+    width: 100%;
+    height: 70px;
+    display: block;
+    opacity: 0.8;
+  }
+
+  .waveBottom {
+    width: 100%;
+    height: 70px;
+    display: block;
+    margin-top: 1.5rem;
+    opacity: 0.8;
+  }
+
+  @media (min-width: 600px) {
       .form {
         flex-direction: row;
   

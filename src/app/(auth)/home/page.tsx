@@ -1,51 +1,45 @@
-// src/app/home/page.tsx
-"use client"; 
+"use client";
 
-
+import { useEffect, useState } from 'react';
 import Banner from '../../components/Banner';
 import Newsletter from '../../components/Newsletter';
 import ProductCard from '../../components/ProductCard';
 import styles from './home.module.scss';
-
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
+import { fetchProducts, Product } from '@/services/productService';
+
 export default function HomePage() {
+  const { isAuthenticated, account, token } = useAuth();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { isAuthenticated, account } = useAuth();
- 
-  
+  useEffect(() => {
+    if (!token) return;
 
- 
- /* // Not authenticated? Show login button only
-  if (!isAuthenticated) {
-    return (
-      <main className={styles.home}>
-        <button onClick={handleLogin}>Login</button>
-      </main>
-    );
-  }*/
+    setIsLoading(true);
+    fetchProducts(token)
+      .then(all => {
+        // Pre-order products belong in the banner only, not the grid
+        const perfumes = all.filter(
+          p => p.category?.toLowerCase() !== 'pre-order'
+        );
+        setProducts(perfumes);
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  }, [token]);
 
-    return (
-      <main className={styles.home}>
-        <Header/>
-        {/* Show this only if logged in */}
-        {isAuthenticated && ( 
-          <div className={styles.welcomeBanner}>
-          <p >Welcome, {account?.name || account?.username}</p>
-          </div>
-        )} 
-         
-  
-        {/* Optional login button for guests 
-        {!isAuthenticated && (
-          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-            <p>Welcome, guest!</p>
-            <Button onClick={handleLogin} variant="primary" size="sm">
-              Login for more features
-            </Button>
-          </div>
-        )}*/}
+  return (
+    <main className={styles.home}>
+      <Header />
+
+      {isAuthenticated && (
+        <div className={styles.welcomeBanner}>
+          <p>Welcome, {account?.name || account?.username}</p>
+        </div>
+      )}
 
       <Banner
         title="Orchidée Blanche"
@@ -61,22 +55,30 @@ export default function HomePage() {
 
       <section className={`${styles.products} ${styles.container}`}>
         <div className={styles.grid}>
-          {[...Array(8)].map((_, i) => (
-            <ProductCard
-              id= ""
-              key={i}
-              name="Perfume1"
-              price={79.99}
-              imageUrl="/images/Right-Container.png"
-            />
-          ))}
+          {isLoading ? (
+            <p className={styles.loading}>Loading products...</p>
+          ) : products.length === 0 ? (
+            <p className={styles.loading}>No products available.</p>
+          ) : (
+            products.map(product => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                imageUrl={product.imageUrl}
+                description={product.description}
+                category={product.category}
+              />
+            ))
+          )}
         </div>
       </section>
 
       <div className={styles.container}>
-     <Newsletter />
-     </div>
-      <Footer/>
+        <Newsletter />
+      </div>
+      <Footer />
     </main>
   );
 }

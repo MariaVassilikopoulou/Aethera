@@ -33,38 +33,24 @@
 
     .imageContainer {
       flex: 1;
-      display: flex;
-      justify-content: center;
-      
-      
+      position: relative;
+      min-height: 380px;
+      border-radius: 32px;
+      overflow: hidden;
+
       @media (max-width: 768px) {
         width: 100%;
-        padding: 0 1rem; 
+        min-height: 300px;
       }
 
       .img {
-        height: auto;
+        object-fit: contain;
         border-radius: 32px;
-        object-fit: contain; 
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         transition: transform 0.3s ease;
 
         &:hover {
           transform: scale(1.03);
-        }
-
-        
-        @media (min-width: 769px) {
-          width: 100%;
-          max-width: 400px;
-        }
-
-        
-        @media (max-width: 768px) {
-          width: 100% !important; 
-          max-width: 100% !important; 
-          min-width: 280px; 
-          border-radius: 32px;
         }
       }
     }

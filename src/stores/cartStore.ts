@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { Product } from "@/services/productService";
-import { getCart, saveCart } from "@/services/cartService";
+import { getCart, saveCart, deleteCart } from "@/services/cartService";
 
 interface CartItem {
   productId: string;   
@@ -82,7 +82,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
   clearCart: async (token) => {
     set({ cart: [] });
     if (token) {
-      await saveCart({ items: [] }, token);
+      await deleteCart(token);
     }
   },
 

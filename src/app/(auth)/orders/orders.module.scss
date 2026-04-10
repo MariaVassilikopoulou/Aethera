@@ -1,0 +1,127 @@
+.ordersPage {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #332f2f;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #8c7b75;
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .shopBtn {
+    background: #8c7b75;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .orderList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .orderCard {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.25rem 1.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+  }
+
+  .orderMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .orderId {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #332f2f;
+    letter-spacing: 0.04em;
+  }
+
+  .orderDate {
+    font-size: 0.85rem;
+    color: #8c7b75;
+  }
+
+  .orderInfo {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .orderTotal {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #332f2f;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-left: auto;
+  }
+
+  // ── Status badges ─────────────────────────────
+  .statusBadge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+  }
+
+  .statusPending        { background: #fef3e2; color: #c07a10; }
+  .statusAwaitingPayment { background: #e8f0fb; color: #3b6fd4; }
+  .statusPaid           { background: #e8f5ee; color: #2e7d52; }
+  .statusShipped        { background: #f0eaf8; color: #6f42c1; }
+  .statusDelivered      { background: #d8f0e6; color: #1a5c3a; }
+  .statusCancelled      { background: #f4f0ef; color: #8c7b75; }
+}

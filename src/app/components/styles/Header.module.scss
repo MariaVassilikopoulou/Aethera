@@ -48,24 +48,74 @@
     left: 0;
     width: 100%;
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e8dede;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     margin-top: 0.5rem;
     z-index: 200;
-    max-height: 300px;
+    max-height: 340px;
     overflow-y: auto;
+    list-style: none;
+    padding: 0.5rem;
+  }
 
-    li {
-      padding: 0.6rem 1rem;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: background 0.2s;
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
 
-      &:hover {
-        background: #f0f0f0;
+    &:hover {
+      background: #f7f1f1;
+
+      .dropdownName {
+        color: #aa8c64;
       }
     }
+  }
+
+  .dropdownImg {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f2eaea;
+  }
+
+  .dropdownInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .dropdownName {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #332f2f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+  }
+
+  .dropdownBadge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #aa8c64;
+  }
+
+  .dropdownPrice {
+    font-size: 0.85rem;
+    color: #8c7b75;
   }
 }
 
@@ -87,32 +137,124 @@
 
 .dropdown {
   position: absolute;
-  top: 35px;
+  top: 40px;
   right: 0;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  z-index: 100;
-  min-width: 150px;
+  background: #fff;
+  border: 1px solid #e8dede;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+  padding: 0.75rem;
+  font-family: 'Playfair Display', serif;
+}
 
-  button {
-    display: block;
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 0.5rem 0;
-    text-align: left;
-    cursor: pointer;
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.25rem 0.75rem;
+}
 
-    &:hover {
-      background: #f0f0f0;
-    }
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #aa8c64;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropdownUser {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.dropdownGreeting {
+  font-size: 0.75rem;
+  color: #8c7b75;
+}
+
+.dropdownName2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #332f2f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdownWelcome {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #332f2f;
+  margin: 0;
+}
+
+.dropdownSub {
+  font-size: 0.8rem;
+  color: #8c7b75;
+  margin: 0.2rem 0 0;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: #f0e8e8;
+  margin: 0.25rem 0;
+}
+
+.dropdownBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: #332f2f;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: #f7f1f1;
+    color: #aa8c64;
   }
+}
 
-  p {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+.dropdownBtnIcon {
+  font-size: 0.95rem;
+}
+
+.dropdownBtnLogout {
+  color: #8c7b75;
+
+  &:hover {
+    background: #f7f1f1;
+    color: #c0392b;
+  }
+}
+
+.dropdownBtnPrimary {
+  justify-content: center;
+  background: #aa8c64;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 0.25rem;
+
+  &:hover {
+    background: #8a704f;
+    color: #fff;
   }
 }
 

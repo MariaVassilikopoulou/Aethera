@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyAzureToken } from "../../../utils/auth/verifyAzureToken";
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 const AZURE_API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function GET(req: NextRequest) {
@@ -47,6 +46,36 @@ export async function GET(req: NextRequest) {
   }
 }
 
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const authorizationHeader = req.headers.get("Authorization");
+    if (!authorizationHeader?.startsWith("Bearer ")) {
+      return NextResponse.json({ message: "Access token missing or invalid" }, { status: 401 });
+    }
+
+    const token = authorizationHeader.split(" ")[1];
+    await verifyAzureToken(token);
+
+    if (!AZURE_API_BASE_URL) {
+      return NextResponse.json({ message: "Azure API base URL not configured" }, { status: 500 });
+    }
+
+    const response = await fetch(`${AZURE_API_BASE_URL}/api/Cart`, {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (!response.ok && response.status !== 404) {
+      return NextResponse.json({ message: `Backend error: ${response.status}` }, { status: response.status });
+    }
+
+    return new NextResponse(null, { status: 204 });
+  } catch (error) {
+    console.error("Error deleting cart:", error);
+    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {

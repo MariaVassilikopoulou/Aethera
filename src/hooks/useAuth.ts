@@ -34,7 +34,7 @@ export function useAuth() {
             account,
           });
           setToken(accessToken.accessToken);
-         //##### console.log(accessToken);
+         /*#####*/ console.log(accessToken);
         } catch (error) {
           console.warn("Silent token failed, fallback to popup", error);
           try {

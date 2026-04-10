@@ -54,7 +54,7 @@ useEffect(() => {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product);
+      addToCart(product, token ?? undefined);
       toast.success(`${product.name} added to cart!`);
     }
   };
@@ -69,14 +69,14 @@ useEffect(() => {
   <h1>{product.name}</h1>
   <div className={styles.content}>
   <div className={styles.imageContainer}>
-  <Image
-    src={product.imageUrl}
-    alt={product.name}
-    width={400}
-    height={400}
-    className={styles.img}  
-  />
-</div>
+    <Image
+      src={product.imageUrl}
+      alt={product.name}
+      fill
+      className={styles.img}
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+  </div>
     <div className={styles.details}>
       <p>{product.description}</p>
       <p className={styles.price}>€{product.price.toFixed(2)}</p>

@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyAzureToken } from "../../../utils/auth/verifyAzureToken";
 
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
 export async function GET(req: NextRequest) {
   try {
     const authorizationHeader = req.headers.get("Authorization");
