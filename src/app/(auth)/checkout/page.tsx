@@ -92,9 +92,8 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
 
     try {
-      // 1. Create real order — uses local backend URL until Azure deployment is updated
-      const API = process.env.NEXT_PUBLIC_LOCAL_API_URL;
-      const orderRes = await fetch(`${API}/api/Order`, {
+      // 1. Create real order via Next.js proxy (avoids CORS)
+      const orderRes = await fetch('/api/order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,8 +120,8 @@ export default function CheckoutPage() {
       setOrderItems([...cart]);
       clearCart();
 
-      // 2. Create Stripe payment intent — call backend directly
-      const paymentRes = await fetch(`${API}/api/Payment/intent`, {
+      // 2. Create Stripe payment intent via Next.js proxy (avoids CORS)
+      const paymentRes = await fetch('/api/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
