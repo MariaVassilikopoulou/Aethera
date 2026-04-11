@@ -38,7 +38,7 @@ export default function OrdersPage() {
   useEffect(() => {
     if (!token) return;
 
-    fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/api/Order`, {
+    fetch('/api/order', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(res => res.json())

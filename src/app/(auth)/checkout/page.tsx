@@ -254,7 +254,7 @@ export default function CheckoutPage() {
                 stripe={stripePromise}
                 options={{ clientSecret, appearance: stripeAppearance }}
               >
-                <PaymentForm total={total} onSuccess={() => setStep('success')} />
+                <PaymentForm total={total} onSuccess={() => router.push('/orders')} />
               </Elements>
             )}
           </div>
