@@ -49,6 +49,7 @@ export default function CheckoutPage() {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cartLoaded, setCartLoaded] = useState(false);
+  const [orderCreated, setOrderCreated] = useState(false);
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -71,13 +72,13 @@ export default function CheckoutPage() {
     }
   }, [token, fetchCart]);
 
-  // Empty-cart guard — only redirect after cart is confirmed loaded and not mid-submission
+  // Empty-cart guard — only redirect if cart is empty before any order has been created
   useEffect(() => {
-    if (cartLoaded && cart.length === 0 && step === 'shipping' && !isSubmitting) {
+    if (cartLoaded && cart.length === 0 && step === 'shipping' && !isSubmitting && !orderCreated) {
       toast.error('Your cart is empty. Add items before checking out.');
       router.push('/cart');
     }
-  }, [cartLoaded, cart.length, step, router, isSubmitting]);
+  }, [cartLoaded, cart.length, step, router, isSubmitting, orderCreated]);
 
   const getTotal = (items: OrderItem[]) =>
     items.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -113,6 +114,7 @@ export default function CheckoutPage() {
 
       const order = await orderRes.json();
       setOrderId(order.id);
+      setOrderCreated(true);
 
       // Snapshot cart items for display, then clear local state
       // (backend already cleared the cart server-side on order creation)
