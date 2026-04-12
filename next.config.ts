@@ -35,6 +35,16 @@ const nextConfig: NextConfig = {
         hostname: 'aethera-eight.vercel.app',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'aetheraaroma.beauty',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.aetheraaroma.beauty',
+        pathname: '/**',
+      },
     ],
   },
 };
