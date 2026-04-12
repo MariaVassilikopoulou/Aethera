@@ -1,0 +1,30 @@
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #f0e8e8;
+  border-top-color: #aa8c64;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2eaea;
+  z-index: 9999;
+}
+
+.inline {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}

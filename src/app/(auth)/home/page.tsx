@@ -9,6 +9,7 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { useAuth } from "@/hooks/useAuth";
 import { fetchProducts, Product } from '@/services/productService';
+import Loader from '@/app/components/Loader';
 
 export default function HomePage() {
   const { isAuthenticated, account, token } = useAuth();
@@ -56,7 +57,7 @@ export default function HomePage() {
       <section className={`${styles.products} ${styles.container}`}>
         <div className={styles.grid}>
           {isLoading ? (
-            <p className={styles.loading}>Loading products...</p>
+            <Loader />
           ) : products.length === 0 ? (
             <p className={styles.loading}>No products available.</p>
           ) : (
