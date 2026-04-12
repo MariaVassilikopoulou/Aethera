@@ -49,7 +49,7 @@ export const msalConfig = {
     knownAuthorities: [NEXT_PUBLIC_AZURE_KNOWNAUTHORITY], //["aetheraparfum.ciamlogin.com"],
   },
   cache: {
-    cacheLocation: "memoryStorage",
+    cacheLocation: "sessionStorage",
     storeAuthStateInCookie: false,
   },
 };
